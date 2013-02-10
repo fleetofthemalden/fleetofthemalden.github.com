@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Fecesbook</title>
+<script>
+	function getStatus(){
+		var statusText = document.getElementById("msg");
+		var status = statusText.value;
+		statusText.defaultValue = "";
+		var date = new Date();
+		var min = date.getMinutes();
+		var time = date.getHours();
+		if(min < 10){
+			min = min.toString();
+			min = "0" + min;
+		}
+		else{
+			min = min.toString();
+		}
+		time = time.toString() + ":" + min;
+		date = date.toLocaleDateString();
+		status = date + " " + time + " - " + status;
+		statusText.value = statusText.defaultValue;
+		return status;
+	}
+	
+	function updateStatus(){
+		var node = document.createElement("DIV");
+		var statusNode = document.createTextNode(getStatus());
+		node.appendChild(statusNode);
+		var newStatus = document.getElementById("status");
+		newStatus.insertBefore(node, newStatus.childNodes[0]);
+	}
+	
+</script>
+</head>
+
+<body>
+	<h1>Fecebook</h1>
+	<div id="nav">
+		<ul>
+			<li id="home">Home</li>
+			<li id="groups">Groups</li>
+			<li id="profile">Profile</li>
+			<li id="contacts">Contacts</li>
+			<li id="inbox">Inbox</li>
+			<li id="applications">Applications</li>
+		</ul>
+	</div>
+	<h2 id="fullname">Barney Stinson</h2>
+	<p><img src="Barney.jpg" alt="profile" /></p>
+	<h3>What are you thinking about? <input type="text" id="msg" name="msg" size="30" onchange="updateStatus()" /></h3>
+	<h3>Updates</h3>
+	<div id="status">
+	</div>
+	<div id="yesterday">
+		<h3>Updates from yesterday:</h3>
+		<ul>
+			<li>Sterling is now connected to Cyril</li>
+			<li>Ming recommends 4chan</li>
+			<li>Harry just returned from a trip from Godric's Hollow</li>
+		</ul>
+	</div>
+	<div id="longlongtimeago">
+		<h3>Updates from long long time ago:</h3>
+		<ul>
+			<li>Ming just returned from a trip from 4chan</li>
+			<li>Terrence is now connected to Phillip</li>
+			<li>Barrack is now connected to Michelle</li>
+		</ul>
+	</div>
+</body>
+</html>
