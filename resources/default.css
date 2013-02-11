@@ -16,8 +16,8 @@ div{
 	background-color:white;
 	padding-top: 5px;
 	padding-bottom: 20px;
-	padding-left: 10%;
-	padding-right: 10%;
+	padding-left: 100px;
+	padding-right: 100px;
 	
 	
 }
@@ -26,8 +26,8 @@ div{
 	font-size: 14pt;
 	float: right;
 	position: relative;
-	left: -18%;
-	margin-top: 20%;
+	left: 20px;
+	margin-top: 100px;
 	
 }
 
@@ -40,8 +40,8 @@ h1{
 	border: 2px solid SkyBlue;
 	border-top-right-radius: 20px;
 	border-top-left-radius: 20px;
-	padding-left: 10%;
-	padding-right: 10%;
+	padding-left: 100px;
+	padding-right: 100px;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	margin-top: 20px;
