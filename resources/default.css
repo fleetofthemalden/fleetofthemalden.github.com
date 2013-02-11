@@ -4,12 +4,15 @@ body{
 	text-align: left;
 	margin-left: 15%;
 	margin-right: 15%;
-	margin-bottom: 0%;
+	margin-bottom: 20px;
 	margin-top: 0%;
 	
 }
 
 div{
+	border: 2px solid white;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
 	background-color:white;
 	padding-top: 5px;
 	padding-bottom: 20px;
@@ -19,13 +22,29 @@ div{
 	
 }
 
+#nav{
+	font-size: 14pt;
+	float: right;
+	position: relative;
+	left: -18%;
+	margin-top: 20%;
+	
+}
+
+#redir{font-size: 10pt;}
+
+img{border-radius: 20px;}
 
 h1{
+	font-size: 50px;
+	border: 2px solid SkyBlue;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
 	padding-left: 10%;
 	padding-right: 10%;
 	padding-top: 5px;
 	padding-bottom: 5px;
-	margin-top: 0px;
+	margin-top: 20px;
 	margin-bottom: 0px;
 	background-color:SkyBlue;
 	color:white;
