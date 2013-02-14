@@ -18,9 +18,9 @@ function start_game(){
 
 	canvas_init();
 	
-	//test_render();
+	test_render();
 
-	play_game();
+	//play_game();
 	
 }
 
