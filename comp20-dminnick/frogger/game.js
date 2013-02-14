@@ -10,8 +10,9 @@ var fx = 184, fy = 485;
 
 var lv = 1;
 var lives = 3;
-var delay = 5000;
+var delay = 50;
 var pos = 40;
+var timeout = 0;
 
 function start_game(){
 
@@ -57,11 +58,12 @@ function canvas_init(){
 }
 
 function play_game(){ //this function doesn't work right now.
-	while(!game_over()){
+	while(!game_over() && timeout < 500){
 		ctx.save();
 		render_all();
 		setInterval(render_all, delay);
 		ctx.restore();
+		timeout++;
 	}
 }
 
