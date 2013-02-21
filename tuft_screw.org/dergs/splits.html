@@ -15,6 +15,7 @@
 
 var B2k = 420;
 var ProtoId = 81;
+var show = showWorkout;
 
 function showBench() {
  benchWin = window.open(
@@ -46,6 +47,12 @@ function selectWorkout(type){
 	var z = y.getElementsByTagName("option")[x].value;
 	if(z != 6969){
 		ProtoId = z;
+	}
+	if(type == "benchmark"){
+		show = showBench;
+	}
+	else{
+		show = showWorkout;
 	}
 }
 </script>
@@ -292,7 +299,7 @@ Benchmarks:
 </select>
 </form>
 
-<button type="button" onclick="showWorkout()">Show Workout</button>
+<button type="button" onclick="show()">Show Workout</button>
 </br></br>
 <center>~</br><I id="quote"></I></br>~</center>
 </div>
