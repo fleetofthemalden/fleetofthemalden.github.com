@@ -15,6 +15,11 @@ body{
 	border: 2px solid #5959FF;
 }
 
+.centered{
+	text-align: center;
+	
+}
+
 div{
 	border: 2px solid white;
 	border-bottom-right-radius: 20px;
