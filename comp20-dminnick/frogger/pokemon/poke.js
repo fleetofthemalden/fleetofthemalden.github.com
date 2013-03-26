@@ -1,9 +1,11 @@
 var canvas;
 var ctx;
 var spriteSheet = new Image();
-spriteSheet.src = "assets/frogger_sprites.png";
+spriteSheet.src = "../assets/frogger_sprites.png";
 var deadFrog = new Image();
-deadFrog.src = "assets/dead_frog.png";
+deadFrog.src = "../assets/dead_frog.png";
+var poke = new Image();
+poke.src = "poke.png"
 
 var w1 = 120, w2 = 153, w3 = 186, w4 = 219, w5 = 250;
 var r1 = 315, r2 = 348, r3 = 381, r4 = 414, r5 = 450;
@@ -29,8 +31,7 @@ function start_game(){
 	frog_init();
 	canvas_init();
 	
-	//test_render();
-	//render_all();
+	turn_collisions_off();
 	play_game();
 	
 }
@@ -257,7 +258,7 @@ function frog_move_left(){
 }
 
 function game_over(){
-	alert("Game Over. Your Score: " + score);
+	alert("Pikachu fainted. Your Score: " + score);
 	document.location.reload(true);
 }
 
@@ -309,7 +310,7 @@ function draw_canvas(){
 	ctx.font = "14pt Helvetica";
 	ctx.fillText("Score:                  Highscore:", 2,560);
 	
-	ctx.drawImage(spriteSheet, 13, 12, 324, 35, 25, 16, 324, 34); //header
+	ctx.drawImage(poke, 275, 458, 350, 50, 22, 7, 350, 50); //header
 	
 	ctx.drawImage(spriteSheet, 0, 55, 399, 55, 2, 60, 395, 55); //grass
 	
@@ -322,50 +323,50 @@ function draw_canvas(){
 	draw_lily_pads();
 }
 
-function draw(sx, sy, swidth, sheight, dx, dy, dwidth, dheight){
-	ctx.drawImage(spriteSheet, sx, sy, swidth, sheight, dx, dy, dwidth, dheight);
+function draw(sprites, sx, sy, swidth, sheight, dx, dy, dwidth, dheight){
+	ctx.drawImage(sprites, sx, sy, swidth, sheight, dx, dy, dwidth, dheight);
 	if(dx < 400 && dx > 0){
 		fypos[dy][4]["add"](dx, dwidth + dx);
 	}
 }
 
 function draw_frog_life(dx, dy){
-	ctx.drawImage(spriteSheet, 11, 368, 22, 22, dx, dy, 23, 22);
+	ctx.drawImage(poke, 177, 205, 31, 31, dx, dy, 23, 23);
 }
 
 function draw_frog_static_up(){
-	ctx.drawImage(spriteSheet, 11, 368, 22, 22, frog.fx, frog.fy, 23, 22);
+	ctx.drawImage(poke, 2, 153, 22, 24, frog.fx, frog.fy, 23, 24);
 }
 
 function draw_frog_static_down(){
-	ctx.drawImage(spriteSheet, 79, 368, 22, 21, frog.fx, frog.fy, 23, 22);
+	ctx.drawImage(poke, 2, 121, 22, 24, frog.fx, frog.fy, 23, 24);
 }
 
 function draw_frog_static_left(){
-	ctx.drawImage(spriteSheet, 81, 335, 21, 22, frog.fx, frog.fy, 22, 23);
+	ctx.drawImage(poke, 183, 247, 21, 24, frog.fx, frog.fy, 22, 24);
 }
 
 function draw_frog_static_right(){
-	ctx.drawImage(spriteSheet, 12, 335, 21, 22, frog.fx, frog.fy, 22, 23);
+	ctx.drawImage(poke, 47, 122, 21, 24, frog.fx, frog.fy, 22, 24);
 }
 
 function draw_frog_move_up(){
-	ctx.drawImage(spriteSheet, 45, 365, 24, 24, frog.fx, frog.fy, 25, 25);
+	ctx.drawImage(poke, 28, 151, 24, 26, frog.fx, frog.fy, 25, 27);
 	frog.draw = draw_frog_static_up;
 }
 
 function draw_frog_move_down(){
-	ctx.drawImage(spriteSheet, 113, 365, 24, 24, frog.fx, frog.fy, 25, 25);
+	ctx.drawImage(poke, 31, 118, 24, 26, frog.fx, frog.fy, 25, 27);
 	frog.draw = draw_frog_static_down;
 }
 
 function draw_frog_move_left(){
-	ctx.drawImage(spriteSheet, 112, 338, 24, 24, frog.fx, frog.fy, 25, 25);
+	ctx.drawImage(poke, 148, 245, 28, 25, frog.fx, frog.fy, 27, 26);
 	frog.draw = draw_frog_static_left;
 }
 
 function draw_frog_move_right(){
-	ctx.drawImage(spriteSheet, 42, 336, 24, 24, frog.fx, frog.fy, 25, 25);
+	ctx.drawImage(poke, 73, 118, 28, 25, frog.fx, frog.fy, 27, 26);
 	frog.draw = draw_frog_static_right;
 }
 
@@ -427,8 +428,7 @@ function draw_3x_speed(pos){
 function draw_lily_pads(){
 	var pads = [13,97, 183, 267, 349];
 	for(i=0; i<5; i++){
-		ctx.drawImage(spriteSheet, 9, 265, 30, 24, pads[i], g3, 30, 24);//artistic liberty
-		//ctx.drawImage(spriteSheet, 110, 10, 32, 32, pads[i], g3, 30, 24);//lilypads
+		ctx.drawImage(poke, 177, 205, 31, 31, pads[i], g3, 26, 26);//artistic liberty
 	}
 	var len = fypos[g3][4]["loc"].length;
 	var rx;
@@ -440,45 +440,35 @@ function draw_lily_pads(){
 }
 
 function draw_logs_long(dx){
-	draw(0, 165, 185, 24, dx      , w3, 185, 24);
-	draw(0, 165, 185, 24, dx + 240, w3, 185, 24);
+	draw(poke, 143, 338, 206, 49, dx      , w3, 185, 24);
+	draw(poke, 143, 338, 206, 49, dx + 240, w3, 185, 24);
 }
 
 function draw_logs_med(dx){
-	draw(0, 196, 125, 24, dx      , w1, 125, 24);
-	draw(0, 196, 125, 24, dx + 180, w1, 125, 24);	
-	draw(0, 196, 125, 24, dx + 360, w1, 125, 24);	
+	draw(poke, 144, 282, 164, 49, dx      , w1, 125, 24);
+	draw(poke, 144, 282, 164, 49, dx + 180, w1, 125, 24);	
+	draw(poke, 144, 282, 164, 49, dx + 360, w1, 125, 24);	
 }
 
 function draw_logs_short(dx){
-	draw(0, 230, 93, 24, dx      , w4, 93, 24);
-	draw(0, 230, 93, 24, dx + 150, w4, 93, 24);
-	draw(0, 230, 93, 24, dx + 300, w4, 93, 24);
+	draw(poke, 143, 403, 129, 49, dx      , w4, 93, 24);
+	draw(poke, 143, 403, 129, 49, dx + 150, w4, 93, 24);
+	draw(poke, 143, 403, 129, 49, dx + 300, w4, 93, 24);
 }
 
 function draw_double_turtles_pos1(dx){
-	draw(14, 406, 32, 22, dx     , w2, 32, 22);
-	draw(14, 406, 32, 22, dx - 38, w2, 32, 22);
+	draw(poke, 55, 466, 22, 22, dx     , w2, 31, 26);
+	draw(poke, 55, 466, 22, 22, dx - 38, w2, 31, 26);
 }
 
 function draw_double_turtles_pos2(dx){
-	draw(52, 406, 32, 22, dx     , w2, 32, 22);
-	draw(52, 406, 32, 22, dx - 38, w2, 32, 22);
+	draw(poke, 158, 463, 22, 22, dx     , w2, 31, 26);
+	draw(poke, 158, 463, 22, 22, dx - 38, w2, 31, 26);
 }
 
 function draw_double_turtles_pos3(dx){
-	draw(93, 406, 32, 22, dx     , w2, 32, 22);
-	draw(93, 406, 32, 22, dx - 38, w2, 32, 22);
-}
-
-function draw_2_dive_turtles_pos3(dx){
-	draw(133, 406, 32, 22, dx     , w2, 32, 22);
-	draw(133, 406, 32, 22, dx - 38, w2, 32, 22);
-}
-
-function draw_2_dive_turtles_pos4(dx){
-	draw(175, 407, 32, 22, dx     , w2, 32, 22);
-	draw(175, 407, 32, 22, dx - 38, w2, 32, 22);
+	draw(poke, 55, 488, 22, 22, dx     , w2, 31, 26);
+	draw(poke, 55, 488, 22, 22, dx - 38, w2, 31, 26);
 }
 
 function draw_w2_turtles_pos1(dx){
@@ -494,26 +484,21 @@ function draw_w2_turtles_pos2(dx){
 }
 
 function draw_w2_turtles_pos3(dx){
-	draw_2_dive_turtles_pos3(dx);
+	draw_double_turtles_pos3(dx);
 	draw_double_turtles_pos3(dx - 130);
 	draw_double_turtles_pos3(dx - 260);
 }
 
 function draw_w2_turtles_pos4(dx){
-	draw_2_dive_turtles_pos4(dx);
-	draw_double_turtles_pos1(dx - 130);
-	draw_double_turtles_pos1(dx - 260);
+	draw_w2_turtles_pos1(dx);
 }
 
 function draw_w2_turtles_pos5(dx){
-	draw_double_turtles_pos2(dx - 260);
-	draw_double_turtles_pos2(dx - 130);
+	draw_w2_turtles_pos2(dx);
 }
 
 function draw_w2_turtles_pos6(dx){
-	draw_2_dive_turtles_pos4(dx);
-	draw_double_turtles_pos3(dx - 130);
-	draw_double_turtles_pos3(dx - 260);
+	draw_w2_turtles_pos3(dx);
 }
 
 function draw_double_turtles(dx){
@@ -538,33 +523,33 @@ function draw_double_turtles(dx){
 }
 
 function draw_triple_turtles_pos1(dx){
-	draw(14, 406, 32, 22, dx - 38, w5, 32, 22);
-	draw(14, 406, 32, 22, dx     , w5, 32, 22);
-	draw(14, 406, 32, 22, dx - 76, w5, 32, 22);
+	draw(poke, 55, 466, 22, 22, dx     , w5, 31, 26);
+	draw(poke, 55, 466, 22, 22, dx - 38, w5, 31, 26);
+	draw(poke, 55, 466, 22, 22, dx - 76, w5, 31, 26);
 }
 
 function draw_triple_turtles_pos2(dx){
-	draw(52, 406, 32, 22, dx - 38, w5, 32, 22);
-	draw(52, 406, 32, 22, dx     , w5, 32, 22);
-	draw(52, 406, 32, 22, dx - 76, w5, 32, 22);
+	draw(spriteSheet, 52, 406, 32, 22, dx - 38, w5, 32, 22);
+	draw(spriteSheet, 52, 406, 32, 22, dx     , w5, 32, 22);
+	draw(spriteSheet, 52, 406, 32, 22, dx - 76, w5, 32, 22);
 }
 
 function draw_triple_turtles_pos3(dx){
-	draw(93, 406, 32, 22, dx - 38, w5, 32, 22);
-	draw(93, 406, 32, 22, dx     , w5, 32, 22);
-	draw(93, 406, 32, 22, dx - 76, w5, 32, 22);
+	draw(spriteSheet, 93, 406, 32, 22, dx - 38, w5, 32, 22);
+	draw(spriteSheet, 93, 406, 32, 22, dx     , w5, 32, 22);
+	draw(spriteSheet, 93, 406, 32, 22, dx - 76, w5, 32, 22);
 }
 
 function draw_3_dive_turtles_pos3(dx){
-	draw(133, 406, 32, 22, dx - 38, w5, 32, 22);
-	draw(133, 406, 32, 22, dx     , w5, 32, 22);
-	draw(133, 406, 32, 22, dx - 76, w5, 32, 22);
+	draw(spriteSheet, 133, 406, 32, 22, dx - 38, w5, 32, 22);
+	draw(spriteSheet, 133, 406, 32, 22, dx     , w5, 32, 22);
+	draw(spriteSheet, 133, 406, 32, 22, dx - 76, w5, 32, 22);
 }
 
 function draw_3_dive_turtles_pos4(dx){
-	draw(175, 407, 32, 22, dx - 38, w5, 32, 22);
-	draw(175, 407, 32, 22, dx     , w5, 32, 22);
-	draw(175, 407, 32, 22, dx - 76, w5, 32, 22);
+	draw(spriteSheet, 175, 407, 32, 22, dx - 38, w5, 32, 22);
+	draw(spriteSheet, 175, 407, 32, 22, dx     , w5, 32, 22);
+	draw(spriteSheet, 175, 407, 32, 22, dx - 76, w5, 32, 22);
 }
 
 function draw_w5_turtles_pos1(dx){
@@ -624,38 +609,38 @@ function draw_triple_turtles(dx){
 }
 
 function draw_trucks(dx){	
-	draw(104, 300, 50, 24, dx      , r1, 50, 24);
-	draw(104, 300, 50, 24, dx - 150, r1, 50, 24);
+	draw(spriteSheet, 104, 300, 50, 24, dx      , r1, 50, 24);
+	draw(spriteSheet, 104, 300, 50, 24, dx - 150, r1, 50, 24);
 }
 
 function draw_white_cars(dx){
-	draw(45, 265, 30, 24, dx     , r2, 30, 24);
-	draw(45, 265, 30, 24, dx + 80, r2, 30, 24);
+	draw(spriteSheet, 45, 265, 30, 24, dx     , r2, 30, 24);
+	draw(spriteSheet, 45, 265, 30, 24, dx + 80, r2, 30, 24);
 }
 
 function draw_pink_cars(dx){
-	draw(9, 265, 30, 24, dx      , r3, 30, 24);
-	draw(9, 265, 30, 24, dx - 100, r3, 30, 24);
-	draw(9, 265, 30, 24, dx - 200, r3, 30, 24);
-	draw(9, 265, 30, 24, dx - 300, r3, 30, 24);
+	draw(spriteSheet, 9, 265, 30, 24, dx      , r3, 30, 24);
+	draw(spriteSheet, 9, 265, 30, 24, dx - 100, r3, 30, 24);
+	draw(spriteSheet, 9, 265, 30, 24, dx - 200, r3, 30, 24);
+	draw(spriteSheet, 9, 265, 30, 24, dx - 300, r3, 30, 24);
 }
 
 function draw_tractor_things_pos1(dx){
-	draw(9, 300, 30, 24, dx  + 200, r4, 30, 24);
-	draw(9, 300, 30, 24, dx       , r4, 30, 24);
-	draw(9, 300, 30, 24, dx  + 100, r4, 30, 24);
+	draw(spriteSheet, 9, 300, 30, 24, dx  + 200, r4, 30, 24);
+	draw(spriteSheet, 9, 300, 30, 24, dx       , r4, 30, 24);
+	draw(spriteSheet, 9, 300, 30, 24, dx  + 100, r4, 30, 24);
 }
 
 function draw_tractor_things_pos2(dx){
-	draw(40, 300, 30, 24, dx  + 200, r4, 30, 24);
-	draw(40, 300, 30, 24, dx       , r4, 30, 24);
-	draw(40, 300, 30, 24, dx  + 100, r4, 30, 24);
+	draw(spriteSheet, 40, 300, 30, 24, dx  + 200, r4, 30, 24);
+	draw(spriteSheet, 40, 300, 30, 24, dx       , r4, 30, 24);
+	draw(spriteSheet, 40, 300, 30, 24, dx  + 100, r4, 30, 24);
 }
 
 function draw_tractor_things_pos3(dx){
-	draw(72, 300, 30, 24, dx  + 200, r4, 30, 24);
-	draw(72, 300, 30, 24, dx       , r4, 30, 24);
-	draw(72, 300, 30, 24, dx  + 100, r4, 30, 24);
+	draw(spriteSheet, 72, 300, 30, 24, dx  + 200, r4, 30, 24);
+	draw(spriteSheet, 72, 300, 30, 24, dx       , r4, 30, 24);
+	draw(spriteSheet, 72, 300, 30, 24, dx  + 100, r4, 30, 24);
 }
 
 function draw_tractor_things(dx){
@@ -671,14 +656,14 @@ function draw_tractor_things(dx){
 }
 
 function draw_yellow_cars(dx){
-	draw(81, 265, 30, 24, dx      , r5, 30, 24);
-	draw(81, 265, 30, 24, dx - 100, r5, 30, 24);
-	draw(81, 265, 30, 24, dx - 200, r5, 30, 24);
-	draw(81, 265, 30, 24, dx - 300, r5, 30, 24);
+	draw(spriteSheet, 81, 265, 30, 24, dx      , r5, 30, 24);
+	draw(spriteSheet, 81, 265, 30, 24, dx - 100, r5, 30, 24);
+	draw(spriteSheet, 81, 265, 30, 24, dx - 200, r5, 30, 24);
+	draw(spriteSheet, 81, 265, 30, 24, dx - 300, r5, 30, 24);
 }
 
 //FOR TESTING ONLY
-/*
+
 function turn_collisions_off(){
 	fypos[w1][5] = "fun";
 	fypos[w2][5] = "fun";
@@ -695,4 +680,3 @@ function turn_collisions_off(){
 function test_render(){
 	
 }
-*/

@@ -29,10 +29,13 @@
 	
 	function updateStatus(){
 		var node = document.createElement("DIV");
-		var statusNode = document.createTextNode(getStatus());
+		var status = getStatus();
+		var statusNode = document.createTextNode(status);
 		node.appendChild(statusNode);
 		var newStatus = document.getElementById("status");
 		newStatus.insertBefore(node, newStatus.childNodes[0]);
+		status = "poop=" + status;
+		document.cookie = "poop=smelly";
 	}
 	
 </script>
