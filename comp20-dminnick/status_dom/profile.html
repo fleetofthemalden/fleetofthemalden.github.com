@@ -24,6 +24,8 @@
 		date = date.toLocaleDateString();
 		status = date + " " + time + " - " + status;
 		statusText.value = statusText.defaultValue;
+		var cookie = date + "=" + status;
+		document.cookie = cookie;
 		return status;
 	}
 	
@@ -34,8 +36,6 @@
 		node.appendChild(statusNode);
 		var newStatus = document.getElementById("status");
 		newStatus.insertBefore(node, newStatus.childNodes[0]);
-		status = "poop=" + status;
-		document.cookie = "poop=smelly";
 	}
 	
 </script>
