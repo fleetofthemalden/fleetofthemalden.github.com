@@ -22,7 +22,8 @@
 		}
 		time = time.toString() + ":" + min;
 		date = date.toLocaleDateString();
-		status = date + " " + time + " - " + status;
+		date = date + " " + time;
+		status = date + " - " + status;
 		statusText.value = statusText.defaultValue;
 		var cookie = date + "=" + status;
 		document.cookie = cookie;
