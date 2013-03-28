@@ -31,7 +31,7 @@
 		date = date + " " + time;
 		status = date + " - " + status;
 		statusText.value = statusText.defaultValue;
-		localStorage[date] = status;
+		localStorage[new Date()] = status;
 		return status;
 	}
 	
@@ -50,7 +50,7 @@
 </script>
 </head>
 
-<body>
+<body onload="init()">
 	<h1>Fecebook</h1>
 	<div id="nav">
 		<ul>
