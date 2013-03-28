@@ -6,6 +6,12 @@
 <head>
 <title>Fecesbook</title>
 <script>
+	function init(){
+		for(key in localStorage){
+			postStatus(localStorage[key]);
+		}
+	}
+
 	function getStatus(){
 		var statusText = document.getElementById("msg");
 		var status = statusText.value;
@@ -25,14 +31,16 @@
 		date = date + " " + time;
 		status = date + " - " + status;
 		statusText.value = statusText.defaultValue;
-		var cookie = date + "=" + status;
-		document.cookie = cookie;
+		localStorage[date] = status;
 		return status;
 	}
 	
 	function updateStatus(){
+		postStatus(getStatus());
+	}
+	
+	function postStatus(status){
 		var node = document.createElement("DIV");
-		var status = getStatus();
 		var statusNode = document.createTextNode(status);
 		node.appendChild(statusNode);
 		var newStatus = document.getElementById("status");
