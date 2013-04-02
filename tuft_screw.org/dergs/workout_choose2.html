@@ -18,7 +18,7 @@ document.location = "splits.html";
 //-->
 </script>
 </head>
-<body onload="init()">
+<body onload="displayQuote()">
 
 <div id=tuc-wrap>
 
@@ -107,21 +107,18 @@ function showSplits() {
 
 <div id=tuc-content>
 <table width=860><tr><td><center><I id="quote"></I></center><p></td></tr></table>
-<script src="splits.js"></script>
 <script>
-function showBench(proto, arbitrary) {
- var B2k = localStorage['2k'];
+function showBench(ProtoId,B2k) {
  benchWin = window.open(
-  'http://tuftscrew.org/dergs/benchmark_show.php?p='+proto+'&best2k='+B2k,
+  'http://tuftscrew.org/dergs/benchmark_show.php?p='+ProtoId+'&best2k='+B2k,
   'benchWin',
   'width=600,height=350,left=150,top=20,toolbar=no,scrollbars=no,status=no,resizable=no'
  );
  benchWin.focus();
 }
-function showWorkout(proto, arbitrary) {
- var B2k = localStorage['2k'];
+function showWorkout(ProtoId,B2k) {
  benchWin = window.open(
-  'http://tuftscrew.org/dergs/workout_show.php?pid='+proto+'&best2k='+B2k,
+  'http://tuftscrew.org/dergs/workout_show.php?pid='+ProtoId+'&best2k='+B2k,
   'benchWin',
   'width=600,height=600,left=150,top=20,toolbar=no,scrollbars=no,status=no,resizable=no'
  );
@@ -137,11 +134,11 @@ function showWorkout(proto, arbitrary) {
 <TD ALIGN=CENTER width=180>
 <FORM ACTION = 'workout_choose.html' NAME='PForm' METHOD = 'POST'>
 <br>
-<b>Target 2K </b><br>
-<SELECT NAME=best2k id="target2k" size=9 onchange='update2k()'>
+<b>Target 2K . . 4:20 (BEAST MODE)</b><br>
+<SELECT NAME=best2k size=9 onchange='document.PForm.submit();'>
 <OPTION VALUE=360>6:00</OPTION>
 <OPTION VALUE=362>6:02</OPTION>
-<OPTION VALUE=364>6:04</OPTION>
+<OPTION VALUE=364 SELECTED>6:04</OPTION>
 <OPTION VALUE=366>6:06</OPTION>
 <OPTION VALUE=368>6:08</OPTION>
 <OPTION VALUE=370>6:10</OPTION>
