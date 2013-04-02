@@ -8,56 +8,12 @@
 <link media="print, screen and (min-device-width: 700px)" href="../css/default_fleet.css" rel="stylesheet" />
 <link media="only screen and (max-device-width: 700px)" href="../css/mobile.css" rel="stylesheet" />
 <script src="../quotes.js"></script>
+<script src="splits.js"></script>
 </head>
-<body onload="displayQuote()">
+<body onload="init()">
 <h1 id="sm_hdr">ergs</h1>
 <div>
 <br />
-<script>
-
-var B2k = 420;
-var ProtoId = 81;
-var show = showWorkout;
-
-function showBench() {
- benchWin = window.open(
-  'http://tuftscrew.org/dergs/benchmark_show.php?p='+ProtoId+'&best2k='+B2k,
-  'benchWin',
-  'width=600,height=350,left=150,top=20,toolbar=no,scrollbars=no,status=no,resizable=no'
- );
- benchWin.focus();
-}
-
-function showWorkout() {
- benchWin = window.open(
-  'http://tuftscrew.org/dergs/workout_show.php?pid='+ProtoId+'&best2k='+B2k,
-  'benchWin',
-  'width=600,height=600,left=50,top=20,toolbar=no,scrollbars=no,status=no,resizable=no'
- );
- benchWin.focus();
-}
-
-function update2k(){
-	var y = document.getElementById("target2k");
-	var x = y.selectedIndex;
-	B2k = y.getElementsByTagName("option")[x].value;
-}
-
-function selectWorkout(type){
-	var y = document.getElementById(type);
-	var x = y.selectedIndex;
-	var z = y.getElementsByTagName("option")[x].value;
-	if(z != 6969){
-		ProtoId = z;
-	}
-	if(type == "benchmark"){
-		show = showBench;
-	}
-	else{
-		show = showWorkout;
-	}
-}
-</script>
 
 <form>
 Select Target 2k: 
@@ -92,7 +48,7 @@ Select Target 2k:
 <OPTION VALUE=414>6:54</OPTION>
 <OPTION VALUE=416>6:56</OPTION>
 <OPTION VALUE=418>6:58</OPTION>
-<OPTION VALUE=420 selected="selected">7:00</OPTION>
+<OPTION VALUE=420>7:00</OPTION>
 <OPTION VALUE=422>7:02</OPTION>
 <OPTION VALUE=424>7:04</OPTION>
 <OPTION VALUE=426>7:06</OPTION>
