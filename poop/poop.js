@@ -6,7 +6,8 @@ function init(){
 	mukmuk = JSON.stringify(poop);
 	$.post("http://gentle-shore-6564.herokuapp.com/submit.json", mukmuk);
 }
-	/*
+
+/*
 	taco = $.get("http://gentle-shore-6564.herokuapp.com/highscores.json", function() {
   alert("success");
 })
