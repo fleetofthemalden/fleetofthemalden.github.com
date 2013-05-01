@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Highscores</title>
+<link rel="stylesheet" href="http://fleetofthemalden.github.com/resources/default.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>
+var fun = submit;
+
+function submit() {
+    var text = $("form input:text").val();
+    var score = new Object;
+    score.game_title = "frogger";
+    score.username = text;
+    score.score = 69: //FIX ME LATER
+    $.post("http://gentle-shore-6564.herokuapp.com/submit.json", score);
+	$.get("http://gentle-shore-6564.herokuapp.com/highscores.json?game_title=frogger", function (scores){
+		for(var i=0; i<scores.length; i++){
+			$('#search').append("<h4>Username:     " + scores[i].username + "<br />Score:    " + scores[i].score + "</h4>");
+		}
+	});
+	fun = null;
+}
+
+</script>
+
+</head>
+
+<body>
+<h1>Highscores</h1>
+
+
+<div id="search">
+<h5>Highscores</h5>
+<form action="javascript:fun()">
+Enter username:<input type="text">
+</form>
+<button type="button" onclick="fun">Submit</button>
+</div>
+
+</body>
+
+</html>

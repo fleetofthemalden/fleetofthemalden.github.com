@@ -258,7 +258,14 @@ function frog_move_left(){
 
 function game_over(){
 	alert("Game Over. Your Score: " + score);
+	
 	document.location.reload(true);
+}
+
+function openHiScoreWin(){
+	myWindow=window.open('','','width=200,height=100');
+	myWindow.document.write("<p>This is 'myWindow'</p>");
+	myWindow.focus();
 }
 
 function lose_life(){
