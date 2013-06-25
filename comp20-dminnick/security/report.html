@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<title>Friends of Ming Chow Jobs Listing</title>
+<link media="print, screen and (min-device-width: 700px)" href="default.css" rel="stylesheet" />
+</head>
+
+<body>
+<h1>Scorecenter app Security Analysis</h1>
+<div class="div">
+<h2>Introduction</h2>
+<p>
+As part of <a href="http://tuftsdev.github.io/WebProgramming/assignments/a6.html">Assignment 6</a> of Ming Chow's Web programming class, I was tasked with identifying security vulnerabilities in Max Smiley's <a href='http://hidden-wave-3744.herokuapp.com/'>webapp</a> as defined in <a href='http://tuftsdev.github.io/WebProgramming/assignments/a5.html'>assignment 5</a> for the same class.</p>
+
+<h2>Methodology</h2>
+<p>
+I first went to the address of the webapp to verify its functionality.<br />
+I then examined the sourcecode of Max's usersearch page and discovered that his API for that page made use of his post API, which submitted a fixed set of data.<br />
+Using the Burpsuite proxy's Intruder function, I modified the data to see if I could insert malicious content into the database<br />
+After executing those "blackbox" tests, I examined the sourcecode provided to me for other errors to see if I could exploit them <br />
+
+</p>
+
+<h2>Abstract of Findings</h2>
+
+<p>The biggest vulnerabilities this application has are derived primarily from allowing anyone to access the database and a lack of input validation. This allows anyone to have an extremely high degree of manipulation over the server. There are some other major and minor issues in the structure of the source-code that can be exploited as well.
+</p>
+
+
+<h2>Issues Found</h2>
+
+<div class="issue">1. Cross-Site Scripting Vulnerability<br />
+<h5><div class="bold">Location: </div> web.js lines 10-13 </h5>
+<h5><div class="bold">Severity: </div> High </h5>
+<h5><div class="bold">Description: </div> Any site can access the post API, allowing anyone to submit whatever they want.</h5>
+<h5><div class="bold">Resolution: </div> The permissions should be changed to permit only trusted pages to submit to the database. </h5>
+</div><br />
+
+<div class="issue">2. Usersearch uses POST API<br />
+<h5><div class="bold">Location: </div> web.js lines 112-150 </h5>
+<h5><div class="bold">Severity: </div> Very High </h5>
+<h5><div class="bold">Description: </div> Malicious content can be inserted into your database, USING YOUR OWN site without even needing CORS permissions. The fields submitted from usersearch can be freely manipulated to put whatever you want, including malicious script that when rendered can do anything, like say change the location of the page to anywhere on the internet, or something more harmless like an <a href='screens/alert.png'>alert</a>.</h5>
+<h5><div class="bold">Resolution: </div> Change your usersearch such that it doesn't expose your post API. Can also sanitize input. </h5>
+</div><br />
+
+<div class="issue">3. Lack of Input Validation<br />
+<h5><div class="bold">Location: </div> web.js </h5>
+<h5><div class="bold">Severity: </div> High </h5>
+<h5><div class="bold">Description: </div> There has been some attempt at input santization, however you can fill the database with <a href='screens/junk1.png'>junk</a> and <a href='screens/junk2.png'>garbage</a> including script, like in the example above as long as you make your fields have the correct names.</h5>
+<h5><div class="bold">Resolution: </div> Sanitize all input as well as introduce a character limit. </h5>
+</div><br />
+
+<div class="issue">4. Path is visible<br />
+<h5><div class="bold">Location: </div> web.js </h5>
+<h5><div class="bold">Severity: </div> Low </h5>
+<h5><div class="bold">Description: </div> Rather than returning an error page for both paths that don't exist as well as methods that don't exist, a user can find out that perhaps a post method might exist for a specific <a href='screens/path.png'>path</a>, which can give a malicious attacker information, though it is not the biggest security threat in the world</h5>
+<h5><div class="bold">Resolution: </div> Deliver a 404 error page for any undefined path AND any method that isn't supposed to be rendered. </h5>
+</div><br />
+
+<h2>Conclusion</h2>
+
+<p>
+As it is implemented, this webapp is very insecure. There are some easy fixes to eliminate the most glaring vulnerabilities, primarily limiting access control and input validation. That being said, with this many sever issues detected by an undergraduate student over the course of 7 hours of analysis, I strongly suspect that there are other security issues that have yet to be detected, and this is merely illustrative of a larger trend of people creating insecure web content which has the ability to put themselves and those who use their creations at risk.
+</p>
+
+</div>
+</body>
+
+</html>
