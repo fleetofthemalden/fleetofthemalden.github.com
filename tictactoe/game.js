@@ -5,6 +5,8 @@ var game_board;
 var wins;
 var mx, my;
 
+//Known issues: game will freeze if you tie up all the squares in one board and then play there again, something up with setting value to 9...
+
 function start_game(){
 	init();
 	//test_render();
