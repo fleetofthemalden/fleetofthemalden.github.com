@@ -103,6 +103,7 @@ function play_move(event){
 	var bd = board.moves[sqn][0];
 	var sq = board.moves[sqn][1];
 	
+	
 	if(board.current == bd || board.current == 9){
 		board.boards[bd].play(sq);
 	}
@@ -162,7 +163,7 @@ function new_board(n){
 			board.player = board.player.take_turn;
 			board.current = sq;
 		}
-		return;
+		this.check();
 	}
 	return b;
 }
