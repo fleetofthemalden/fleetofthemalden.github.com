@@ -5,8 +5,6 @@ var game_board;
 var wins;
 var mx, my;
 
-//Known issues: game will freeze if you tie up all the squares in one board and then play there again, something up with setting value to 9...
-
 function start_game(){
 	init();
 	//test_render();
@@ -126,18 +124,20 @@ function new_board(n){
 		var temp = this.status;
 		for(var i=0; i<8; i++){
 			if(temp==0){
+				//check for wins in particular board if the board's status was previously neutral
 				temp = check(this.spots[wins[i][0]], this.spots[wins[i][1]], this.spots[wins[i][2]]);
 			}
 			if(temp != 0){
+				//if win detected, update status, draw, reassign check function 
 				this.status = temp;
 				drawBig(this.num, temp);
 				i = 8;
 				this.check = function(){
 					var j=0;
-					var t=0;
+					var t=1;
 					for(j; j<9; j++){
 						var temp2 = this.spots[j];
-						t = temp2 + t;
+						t = temp2 * t;
 						if(temp2 == 0){
 							j = 10;
 						}
@@ -145,13 +145,14 @@ function new_board(n){
 					if(j<10){
 						board.current = 9;
 						if(this.status == 0){
-							this.status = temp2;
-							drawBig(this.num, temp2);
+							this.status = t;
+							drawBig(this.num, t);
 						}
 						this.check = function(){return;};
 					}
 				};
 			}
+			
 		}
 	}
 	b.play = function(sq){
@@ -243,7 +244,7 @@ function drawBig_x(board){
 	ctx.stroke();
 }
 
-function drawBig_o(board, square){
+function drawBig_o(board){
 	var bdy = Math.floor(board/3);
 	var bdx = board%3;
 	
