@@ -48,6 +48,9 @@ function init(){
 				temp = check(this.boards[wins[i][0]]["status"], this.boards[wins[i][1]]["status"], this.boards[wins[i][2]]["status"]);
 			}
 		}
+		if(board.current != 9){
+			board.boards[board.current].check_full();
+		}
 	}
 	game_board = document.getElementById("game_canvas");
 	game_board.addEventListener("mousedown", function(event){play_move(event);});
@@ -105,7 +108,7 @@ function play_move(event){
 	if(board.current == bd || board.current == 9){
 		board.boards[bd].play(sq);
 	}
-		
+	board.check();	
 	
 }
 
@@ -121,6 +124,10 @@ function new_board(n){
 	b.status = 0;
 	b.spots = [0,0,0,0,0,0,0,0,0];
 	b.check = function(){
+		this.check_win();
+		this.check_full();
+	}
+	b.check_win = function(){
 		var temp = this.status;
 		for(var i=0; i<8; i++){
 			if(temp==0){
@@ -132,39 +139,44 @@ function new_board(n){
 				this.status = temp;
 				drawBig(this.num, temp);
 				i = 8;
-				this.check = function(){
-					var j=0;
-					var t=1;
-					for(j; j<9; j++){
-						var temp2 = this.spots[j];
-						t = temp2 * t;
-						if(temp2 == 0){
-							j = 10;
-						}
-					}
-					if(j<10){
-						board.current = 9;
-						if(this.status == 0){
-							this.status = t;
-							drawBig(this.num, t);
-						}
-						this.check = function(){return;};
-					}
-				};
+				this.check = this.check_full;
 			}
-			
 		}
 	}
+	b.check_full = function(){
+		var t=1;
+		var j=0;
+		for(j; j<9; j++){
+			t = t * this.spots[j];
+			if(t==0){
+				j = 11;
+			}
+		}
+		if(j<11){
+			this.status = t;
+			drawBig(this.num, t);
+			board.current = 9;
+		}
+	}			
 	b.play = function(sq){
 		if(this.spots[sq] == 0){
 			this.spots[sq] = board.player.val;
 			board.player.draw(this.num,sq);
 			this.check();
-			board.check();
+			//board.check();
 			board.player = board.player.take_turn;
 			board.current = sq;
 		}
-		this.check();
+	}
+	b.rand = function(){
+		var temp = new Array();
+		for(var i=0; i<9; i++){
+			if(this.spots[i] == 0){
+				temp.push(i);
+			}
+		}
+		var r = temp[Math.floor(temp.length*Math.random())];
+		this.play(r);
 	}
 	return b;
 }
