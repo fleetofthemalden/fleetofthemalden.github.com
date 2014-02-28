@@ -15,8 +15,8 @@ body{
 }
 
 .mid_div{
-	border: 2px solid white;
-	background-color:white;
+	border: 2px solid Gainsboro;
+	background-color:Gainsboro;
 	padding-top: 5px;
 	padding-bottom: 5px;
 	padding-left: 100px;
@@ -24,10 +24,10 @@ body{
 }
 
 #bottom_div{
-	border: 2px solid white;
+	border: 2px solid Gainsboro;
 	border-bottom-right-radius: 20px;
 	border-bottom-left-radius: 20px;
-	background-color:white;
+	background-color:Gainsboro;
 	padding-top: 5px;
 	padding-bottom: 20px;
 	padding-left: 100px;
@@ -36,9 +36,9 @@ body{
 }
 
 #full_div{
-	border: 2px solid white;
+	border: 2px solid Gainsboro;
 	border-radius: 20px;
-	background-color:white;
+	background-color:Gainsboro;
 	padding-top: 5px;
 	padding-bottom: 20px;
 	padding-left: 100px;
@@ -49,7 +49,7 @@ body{
 	padding-left: 100px;
 	padding-right: 100px;
 	padding-bottom: 5px;
-	border-bottom: 8px solid SkyBlue;
+	border-bottom: 8px solid darkGreen;
 }
 
 #nav{
@@ -71,7 +71,7 @@ img{
 
 h1{
 	font-size: 50px;
-	border: 2px solid SkyBlue;
+	border: 2px solid darkGreen;
 	border-top-right-radius: 20px;
 	border-top-left-radius: 20px;
 	padding-left: 100px;
@@ -80,8 +80,8 @@ h1{
 	padding-bottom: 5px;
 	margin-top: 20px;
 	margin-bottom: 0px;
-	background-color:SkyBlue;
-	color:white;
+	background-color:darkGreen;
+	color:Gainsboro;
 	
 	
 }
@@ -102,7 +102,9 @@ button{font-size: 20px;}
 
 a.sneakylink{color: black; text-decoration: none;}
 
-a.nav{text-decoration: none;}
+a.nav{text-decoration: none; color:darkGreen;}
+
+.center{text-align: center;}
 
 
 	
