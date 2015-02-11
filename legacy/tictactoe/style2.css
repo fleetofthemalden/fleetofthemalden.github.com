@@ -1,0 +1,24 @@
+#game_div{
+    text-align: left;
+}
+
+
+canvas {
+	background-color: white;
+}
+
+body {
+    background-color: #128138;
+}
+
+#rule_div{
+	border: 2px solid white;
+	border-radius: 20px;
+	background-color:white;
+	padding: 10px;
+	margin-left: 10px;
+	
+}
+img{
+	border-radius: 15px;
+}

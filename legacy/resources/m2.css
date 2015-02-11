@@ -1,0 +1,115 @@
+body{
+	background-color: gray;
+}
+
+#body_div{
+	min-width: 680px;
+	background-color:gray;
+	font-family: "Verdana", Geneva, sans-serif;
+	text-align: left;
+	padding-left: 15%;
+	padding-right: 15%;
+	padding-bottom: 20px;
+	padding-top: 0%;
+	
+}
+
+.mid_div{
+	border: 2px solid Gainsboro;
+	background-color:Gainsboro;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 100px;
+	padding-right: 100px;	
+}
+
+#bottom_div{
+	border: 2px solid Gainsboro;
+	border-bottom-right-radius: 20px;
+	border-bottom-left-radius: 20px;
+	background-color:Gainsboro;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	padding-left: 100px;
+	padding-right: 100px;
+		
+}
+
+#full_div{
+	border: 2px solid Gainsboro;
+	border-radius: 20px;
+	background-color:Gainsboro;
+	padding-top: 5px;
+	padding-bottom: 20px;
+	padding-left: 100px;
+	padding-right: 100px;
+}
+
+#nav_bar{
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-bottom: 5px;
+	border-bottom: 8px solid darkGreen;
+}
+
+#nav{
+	font-size: 14pt;
+	left: 20px;
+	margin-top: 20px;
+	
+}
+
+#redir{
+	font-size:10pt;
+}
+
+img{
+	border-radius: 20px;
+	
+	
+}
+
+#liveTiming{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h1{
+	font-size: 50px;
+	border: 2px solid darkGreen;
+	border-top-right-radius: 20px;
+	border-top-left-radius: 20px;
+	padding-left: 100px;
+	padding-right: 100px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	margin-top: 20px;
+	margin-bottom: 0px;
+	background-color:darkGreen;
+	color:Gainsboro;
+	
+	
+}
+
+h2{font-size: 20pt;}
+
+h4{
+	color:gray;
+
+}
+
+
+.bold{font-weight: bold; text-decoration: none; color: black;}
+
+button{font-size: 20px;}
+
+.mobile{display: none;}
+
+a.sneakylink{color: black; text-decoration: none;}
+
+a.nav{text-decoration: none; color:darkGreen;}
+
+.center{text-align: center;}
+
+
+	
