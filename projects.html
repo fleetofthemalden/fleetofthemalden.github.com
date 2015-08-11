@@ -139,6 +139,24 @@
 				<a href="#four" class="goto-next scrolly">Next</a>
 			</section>
 
+		<!-- Three and a Half -->
+			<section id="three-half" class="wrapper style2 special fade">
+				<script src="scripts/angular.min.js"></script>
+				<script src="scripts/angularRanker.js"></script>
+				<div ng-app="rankerApp" ng-controller="rankerCtrl" class="container">
+					<header>
+						<h2>Lexicographic Ranking of a Word</h2>
+						<p>Executes in O(n) and uses Angular JS</p>
+					</header>
+					<form method="post" action="#" class="container 50%">
+						<div class="row uniform 75%">
+							<div class="8u 12u$(xsmall)"><input type="text" ng-model="wordInput" name="wordInput" id="wordInput" placeholder="Enter a word (25 char max)" /></div>
+							<div class="4u$ 12u$(xsmall)"><input type="submit" value="{{rankWord(wordInput)}}" class="fit special"></div>
+						</div>
+					</form>
+				</div>
+			</section>
+
 		<!-- Four -->
 			<section id="four" class="spotlight style4 right">
 				<span class="image fit main"><img src="legacy/tictactoe/example.jpg" alt="" /></span>
