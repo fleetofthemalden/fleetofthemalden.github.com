@@ -186,7 +186,7 @@
 							</div>
 							<div class="8u 12u$(medium)">
 								<p>A simple Ruby on Rails project for pushing and viewing messages. To post use the following command in your terminal:</p>
-								<pre> curl --data 'message[username]=Employer&message[content]=You/'re Hired&message[app_id]=1' http://pacific-badlands-5369.herokuapp.com/messages.json </pre>
+								<pre> curl --data 'message[username]=Employer&message[content]=You Are Hired&message[app_id]=1' http://pacific-badlands-5369.herokuapp.com/messages.json </pre>
 								<p>A simple iOS app version of this has been made. The repo got eaten by github but I have a local copy that I may be able to salvage from a compromised machine</p>
 							</div>
 						</div>
@@ -197,15 +197,16 @@
 
 		<!-- Six -->
 			<section id="six" class="wrapper style1 special fade">
+				<!-- // <script src="scripts/messagehub.js"></script> -->
 				<div class="container">
 					<header>
 						<h2>MessageHub</h2>
-						<p><!--Test it out-->This feature not yet available.</p>
+						<p><!--Test it out!-->This feature not yet available.</p>
 					</header>
 					<form method="post" action="#" class="container 50%">
 						<div class="row uniform 75%">
-							<div class="8u 12u$(xsmall)"><input type="email" name="messagehub" id="messagehub" placeholder="Type Your Message" /></div>
-							<div class="4u$ 12u$(xsmall)"><input type="submit" value="Send Message " class="fit special" /></div>
+							<div class="8u 12u$(xsmall)"><input type="text" name="messagehub" id="messagehub" placeholder="Type Your Message" /></div>
+							<div class="4u$ 12u$(xsmall)"><input id="messageHubPostButt" type="button" value="Send Message " class="fit special" /></div>
 						</div>
 					</form>
 				</div>
