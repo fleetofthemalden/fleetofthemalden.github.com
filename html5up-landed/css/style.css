@@ -5,6 +5,10 @@
 	Landed by HTML5 UP
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+	Modified by Dixon Minnick
+
+	Yes, I did start with a template, but try running a dif on my files versus the template ones. It's been modified a lot
 */
 
 /* Basic */
@@ -41,12 +45,12 @@
 		-ms-transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		transition: border-color 0.2s ease-in-out, color 0.2s ease-in-out;
 		border-bottom: dotted 1px;
-		color: #e44c65;
+		color: #5480f1;
 		text-decoration: none;
 	}
 
 		a:hover {
-			color: #e44c65 !important;
+			color: #5480f1 !important;
 			border-bottom-color: transparent;
 		}
 
@@ -315,7 +319,7 @@
 	}
 
 		header.major:after {
-			background: #e44c65;
+			background: #5480f1;
 			content: '';
 			display: inline-block;
 			height: 0.2em;
@@ -380,7 +384,7 @@
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #e44c65;
+			border-color: #5480f1;
 		}
 
 	.select-wrapper {
@@ -498,7 +502,7 @@
 
 		input[type="checkbox"]:focus + label:before,
 		input[type="radio"]:focus + label:before {
-			border-color: #e44c65;
+			border-color: #5480f1;
 		}
 
 	input[type="checkbox"] + label:before {
@@ -921,8 +925,8 @@
 		input[type="button"]:active,
 		.button:hover,
 		.button:active {
-			box-shadow: inset 0 0 0 1px #e44c65;
-			color: #e44c65 !important;
+			box-shadow: inset 0 0 0 1px #5480f1;
+			color: #5480f1 !important;
 		}
 
 		input[type="submit"]:active,
@@ -966,7 +970,7 @@
 		input[type="reset"].special,
 		input[type="button"].special,
 		.button.special {
-			background-color: #e44c65;
+			background-color: #5480f1;
 			box-shadow: none;
 			color: #ffffff !important;
 		}
@@ -1211,6 +1215,16 @@
 			right: 0;
 		}
 
+		/*
+		style1 - pink  (original)
+		style2 - blue  (original)
+		style3 - green (original)
+		style4 - gray
+		style5 - yellow
+		style6 - orange
+		style7 - purple
+		*/
+
 		.spotlight.style1 .content {
 			border-color: #e44c65;
 		}
@@ -1221,6 +1235,22 @@
 
 		.spotlight.style3 .content {
 			border-color: #39c088;
+		}
+
+		.spotlight.style4 .content {
+			border-color: #A0A0A0;
+		}
+
+		.spotlight.style5 .content {
+			border-color: #CC9900;
+		}
+
+		.spotlight.style6 .content {
+			border-color: #FF6600;
+		}
+
+		.spotlight.style7 .content {
+			border-color: #9900FF;
 		}
 
 		.spotlight.inactive .content {
@@ -1277,62 +1307,95 @@
 	.wrapper {
 		padding: 6em 0 4em 0;
 	}
+		/*
+		style1 - pink  (original)
+		style2 - blue
+		style3 - green
+		style4 - gray
+		style5 - yellow
+		style6 - orange
+		style7 - purple
+		*/
 
-		.wrapper.style2 {
+		.wrapper.style1 {
 			background: #e44c65;
 		}
 
-			.wrapper.style2 input[type="text"]:focus,
-			.wrapper.style2 input[type="password"]:focus,
-			.wrapper.style2 input[type="email"]:focus,
-			.wrapper.style2 select:focus,
-			.wrapper.style2 textarea:focus {
+		.wrapper.style2 {
+			background: #5480f1;
+		}
+
+		.wrapper.style3 {
+			background: #39c088;
+		}
+
+		.wrapper.style4 {
+			background: #A0A0A0;
+		}
+
+		.wrapper.style5 {
+			background: #CC9900;
+		}
+
+		.wrapper.style6 {
+			background: #FF6600;
+		}
+
+		.wrapper.style7 {
+			background: #9900FF;
+		}
+
+			.wrapper input[type="text"]:focus,
+			.wrapper input[type="password"]:focus,
+			.wrapper input[type="email"]:focus,
+			.wrapper select:focus,
+			.wrapper textarea:focus {
 				border-color: rgba(255, 255, 255, 0.5);
 			}
 
-			.wrapper.style2 input[type="submit"]:hover, .wrapper.style2 input[type="submit"]:active,
-			.wrapper.style2 input[type="reset"]:hover,
-			.wrapper.style2 input[type="reset"]:active,
-			.wrapper.style2 input[type="button"]:hover,
-			.wrapper.style2 input[type="button"]:active,
-			.wrapper.style2 .button:hover,
-			.wrapper.style2 .button:active {
+			.wrapper input[type="submit"]:hover, .wrapper input[type="submit"]:active,
+			.wrapper input[type="reset"]:hover,
+			.wrapper input[type="reset"]:active,
+			.wrapper input[type="button"]:hover,
+			.wrapper input[type="button"]:active,
+			.wrapper .button:hover,
+			.wrapper .button:active {
 				background-color: rgba(255, 255, 255, 0.075) !important;
 				box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
 				color: #ffffff !important;
 			}
 
-			.wrapper.style2 input[type="submit"]:active,
-			.wrapper.style2 input[type="reset"]:active,
-			.wrapper.style2 input[type="button"]:active,
-			.wrapper.style2 .button:active {
+			.wrapper input[type="submit"]:active,
+			.wrapper input[type="reset"]:active,
+			.wrapper input[type="button"]:active,
+			.wrapper .button:active {
 				background-color: rgba(255, 255, 255, 0.25) !important;
 			}
 
-			.wrapper.style2 input[type="submit"].special,
-			.wrapper.style2 input[type="reset"].special,
-			.wrapper.style2 input[type="button"].special,
-			.wrapper.style2 .button.special {
+			.wrapper input[type="submit"].special,
+			.wrapper input[type="reset"].special,
+			.wrapper input[type="button"].special,
+			.wrapper .button.special {
 				background-color: #ffffff;
-				color: #e44c65 !important;
+				color: #5480f1 !important;
 			}
 
-				.wrapper.style2 input[type="submit"].special:hover, .wrapper.style2 input[type="submit"].special:active,
-				.wrapper.style2 input[type="reset"].special:hover,
-				.wrapper.style2 input[type="reset"].special:active,
-				.wrapper.style2 input[type="button"].special:hover,
-				.wrapper.style2 input[type="button"].special:active,
-				.wrapper.style2 .button.special:hover,
-				.wrapper.style2 .button.special:active {
+				.wrapper input[type="submit"].special:hover, .wrapper input[type="submit"].special:active,
+				.wrapper input[type="reset"].special:hover,
+				.wrapper input[type="reset"].special:active,
+				.wrapper input[type="button"].special:hover,
+				.wrapper input[type="button"].special:active,
+				.wrapper .button.special:hover,
+				.wrapper .button.special:active {
 					background-color: rgba(255, 255, 255, 0.075) !important;
 					box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.5) !important;
 					color: #ffffff !important;
 				}
 
-				.wrapper.style2 input[type="submit"].special:active,
-				.wrapper.style2 input[type="reset"].special:active,
-				.wrapper.style2 input[type="button"].special:active,
-				.wrapper.style2 .button.special:active {
+				.wrapper input[type="submit"].special:active,
+				.wrapper input[type="reset"].special:active,
+				.wrapper input[type="button"].special:active,
+				.wrapper .button.special:active {
 					background-color: rgba(255, 255, 255, 0.25) !important;
 				}
 
@@ -1425,7 +1488,7 @@
 			}
 
 			.dropotron > li.active > a, .dropotron > li.active > span {
-				color: #e44c65;
+				color: #5480f1;
 			}
 
 		.dropotron.level-0 {
@@ -1516,7 +1579,7 @@
 						}
 
 					#header nav ul li.active > a, #header nav ul li.active > span {
-						color: #e44c65;
+						color: #5480f1;
 					}
 
 					#header nav ul li > ul {
@@ -1598,7 +1661,11 @@
 				}
 
 			#banner .content .image {
-				border-radius: 100%;
+				/*border-radius: 100%;*/
+				border-top-left-radius:100%;
+				border-top-right-radius:0%;
+				border-bottom-right-radius:100%;
+				border-bottom-left-radius:100%;
 				display: inline-block;
 				height: 18em;
 				margin-left: 3em;
@@ -1607,7 +1674,11 @@
 			}
 
 				#banner .content .image img {
-					border-radius: 100%;
+					/*border-radius: 100%;*/
+					border-top-left-radius:100%;
+					border-top-right-radius:0%;
+					border-bottom-right-radius:100%;
+					border-bottom-left-radius:100%;
 					display: block;
 					width: 100%;
 				}
