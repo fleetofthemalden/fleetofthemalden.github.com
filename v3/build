@@ -1,0 +1,1 @@
+sprity out/ src/*.png -s style.scss -p sass --style-type scss
