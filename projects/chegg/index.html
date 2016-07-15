@@ -80,7 +80,7 @@
             }
 
             checkAvailability (username) {
-                console.log('UserName.checkAvailability ' + username); //DM stacktrace
+                // console.log('UserName.checkAvailability ' + username); //DM stacktrace
 
                 if(username.length == 0){
                     this.displayError('please enter a username');
@@ -88,7 +88,7 @@
                 }
 
                 $.ajax(this.endpoint + username).done((data) => {
-                    console.log(JSON.stringify(data)); //DM debug
+                    // console.log(JSON.stringify(data)); //DM debug
                     if(data.length == 0){
                         this.displayAvailable(username);
                     } else {
@@ -98,7 +98,7 @@
             }
 
             makeSuggestions (username) {
-                console.log('UserName.makeSuggestions ' + username); //DM stacktrace
+                // console.log('UserName.makeSuggestions ' + username); //DM stacktrace
 
                 // This helper function is a simple way to get modifier words for suggesting
                 // usernames. Illustrated as proof of concept
@@ -127,7 +127,7 @@
                 let finishedSuggesting = false;
                 let finalSuggestions = [];
                 let suggest = (uname) => {
-                    console.log('UserName.makeSuggestions.suggest ' + uname); //DM stacktrace
+                    // console.log('UserName.makeSuggestions.suggest ' + uname); //DM stacktrace
                     let possibleSuggestions = [
                         suggestWithNoNumbers(uname), 
                         suggestWithAdditonalWordAndNoNumbers(uname), 
@@ -148,7 +148,7 @@
 
                     // Query the API with the possible suggestions
                     $.ajax(this.endpoint + queryString).done((data) => {
-                        console.log(JSON.stringify(data)); //DM debug
+                        // console.log(JSON.stringify(data)); //DM debug
                         let takenNames = data.map((elem) => {return elem.username});
 
                         // Append the possible suggestions that do not appear in the taken names via set difference
@@ -195,7 +195,7 @@
             if(suggestions.length == 0){
                 displayErrorMessage('Sorry, something went wrong');
             }
-            console.log(suggestions); //DM debug
+            // console.log(suggestions); //DM debug
         };
 
         const displayErrorMessage = (errorMessage) => {
