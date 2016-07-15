@@ -1,0 +1,222 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <base href="http://chegg-tutors.appspot.com/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/public/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  </head>
+  <body>
+    <div id="chg-balloon-logo-container">
+        <img src="/public/img/logo.png" />
+    </div>
+    <div id="chg-balloon-controls-container">
+        <p>Enter a username to get started!</p>
+        <input id="chg-balloon-input" maxlength="2048" placeholder="e.g. GrandMasterHM05"
+            name="username" autocomplete="off" type="text" value="" />
+        <button id="chg-balloon-submit">Check availability</button>
+        <div id="dialog-username-available-panel" class="chg-balloon-dialog">
+            <p>Congrats! <span id="dialog-username-available-username"></span> is available.</p>
+        </div>
+        <div id="dialog-username-unavailable-panel" class="chg-balloon-dialog">
+            <p><span id="dialog-username-unavailable-username"></span> is not available. How about one of these?</p>
+            <p><ul id="dialog-username-suggestion-list"></ul></p>
+        </div>
+        <div id="dialog-error-panel" class="chg-balloon-dialog">
+            <p id="dialog-error-message"></p>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        // // The User search API accepts a comma-separated list of usernames, and returns
+        // // user data for any matching records
+        // $.ajax("/coding-challenge/api/user/?username=Hillary2016").done(function(data) {
+        //     // This logs Hillary2016's user data, since the username is registered
+        //     console.log(JSON.stringify(data));
+        //   });
+        // $.ajax("/coding-challenge/api/user/?username=Trump4Pres,FeelTheBern1").done(function(data) {
+        //     // This logs Trump4Pres's user data, since the username is registered, but
+        //     // no user data for FeelTheBern1, since that username is not currently registered
+        //     console.log(JSON.stringify(data));
+        //   });
+
+        
+        // Note: Normally I would not include styles and script directly within the html file 
+        // however in this case it is acceptable due to the scope of the task and we can preserve
+        // the base html tag
+
+        // Note: I haven't gotten a chance to test all edge cases or do anything fancy with the
+        // styling due to the time constraints
+
+        $(".chg-balloon-dialog").hide();
+
+
+        // --- UserName class file --- //
+        // Username class - checks username availability against an API
+        //                - makes suggestions if unavailable
+        //                - agnostic of specific html elements
+        // Dependencies: jQuery
+        class UserName {
+            constructor (endpointUrl, displayMethods) {
+                this.endpoint = endpointUrl;
+
+                // Initializing all passed in methods
+                if(displayMethods.displayAvailable && typeof displayMethods.displayAvailable === 'function'){
+                    this.displayAvailable = displayMethods.displayAvailable; //params: username
+                } else {
+                    this.displayAvailable = (username) => {return};
+                }
+                if(displayMethods.displaySuggestions && typeof displayMethods.displaySuggestions === 'function'){
+                    this.displaySuggestions = displayMethods.displaySuggestions; //params: username, [array of suggestions]
+                } else {
+                    this.displaySuggestions = (username, suggestions) => {return};
+                }
+                if(displayMethods.displayError && typeof displayMethods.displayError === 'function'){
+                    this.displayError = displayMethods.displayError; //params: none
+                } else {
+                    this.displayError = () => {return};
+                }
+            }
+
+            checkAvailability (username) {
+                console.log('UserName.checkAvailability ' + username); //DM stacktrace
+
+                if(username.length == 0){
+                    this.displayError('please enter a username');
+                    return;
+                }
+
+                $.ajax(this.endpoint + username).done((data) => {
+                    console.log(JSON.stringify(data)); //DM debug
+                    if(data.length == 0){
+                        this.displayAvailable(username);
+                    } else {
+                        this.makeSuggestions(username);
+                    }
+                });
+            }
+
+            makeSuggestions (username) {
+                console.log('UserName.makeSuggestions ' + username); //DM stacktrace
+
+                // This helper function is a simple way to get modifier words for suggesting
+                // usernames. Illustrated as proof of concept
+                const getRandomModifierWord = () => { 
+                    const words = ['Super', 'Awesome', 'Fierce', 'Fresh', 'Luscious'];
+                    return words[Math.floor(Math.random()*words.length)];
+                };
+
+                // Several simple methods of creating variations of usernames
+                const suggestWithNoNumbers = (uname) => {
+                    return uname.replace(/([^a-zA-Z_]){1,}/, '');
+                };
+                const suggestWithAdditonalWord = (uname) => {
+                    return getRandomModifierWord() + '_' + uname;
+                };
+                const suggestWithEndNumbers = (uname) => {
+                    return suggestWithNoNumbers(uname) + Math.floor(Math.random()*999);
+                };
+                const suggestWithAdditonalWordAndNoNumbers = (uname) => {
+                    return suggestWithAdditonalWord(suggestWithNoNumbers(uname));
+                };
+                const suggestWithAdditonalWordAndEndNumbers = (uname) => {
+                    return suggestWithAdditonalWord(suggestWithEndNumbers(uname));
+                };
+
+                let finishedSuggesting = false;
+                let finalSuggestions = [];
+                let suggest = (uname) => {
+                    console.log('UserName.makeSuggestions.suggest ' + uname); //DM stacktrace
+                    let possibleSuggestions = [
+                        suggestWithNoNumbers(uname), 
+                        suggestWithAdditonalWordAndNoNumbers(uname), 
+                        suggestWithAdditonalWord(uname), 
+                        suggestWithEndNumbers(uname),
+                        suggestWithAdditonalWordAndEndNumbers(uname)
+                    ];
+
+                    // Using this loop, we want to only consider possible suggestions which are unique from the input and non-empty
+                    let queryString = '';
+                    for(let i = 0; i < possibleSuggestions.length; i++){
+                        if(possibleSuggestions[i].length > 0 && possibleSuggestions[i].length < 2048 && possibleSuggestions[i] != uname){
+                            queryString += possibleSuggestions[i] + ',';
+                        }
+                    }
+                    queryString = queryString.slice(0, -1); //remove trailing comma
+                    possibleSuggestions = queryString.split(','); //possible suggestions now only consist of those in the query string
+
+                    // Query the API with the possible suggestions
+                    $.ajax(this.endpoint + queryString).done((data) => {
+                        console.log(JSON.stringify(data)); //DM debug
+                        let takenNames = data.map((elem) => {return elem.username});
+
+                        // Append the possible suggestions that do not appear in the taken names via set difference
+                        finalSuggestions = finalSuggestions.concat(possibleSuggestions.filter((elem) => {return takenNames.indexOf(elem) < 0}));
+
+                        // If we have at least 3 suggestions, great, that's all we need.
+                        if(finalSuggestions.length >= 3){
+                            // Set the flag to prevent display function a second time
+                            finishedSuggesting = true; 
+                            this.displaySuggestions(username, finalSuggestions);
+                        } else {
+                            // If we do not have enough suggestions, compound the variation
+                            suggest(suggestWithAdditonalWordAndNoNumbers(uname));
+                        }
+                    });
+
+                };
+
+                suggest(username);
+
+                // After 10 seconds, just display the available suggestions to prevent the user from waiting
+                setTimeout(() => {
+                    if(!finishedSuggesting){
+                        this.displaySuggestions(username, finalSuggestions);
+                    }
+                }, 10000);
+            }
+        }
+        // --- end UserName class file --- //
+
+        const displayUsernameAvailable = (username) => {
+            $('#dialog-username-available-username').html(username);
+            $('#dialog-username-available-panel').show();
+        };
+
+        const displayUsernameUnavailable = (username, suggestions) => {
+            $('#dialog-username-unavailable-username').html(username);
+            let html = '';
+            for(let i = 0; i < suggestions.length && i < 8; i++){
+                html += '<li>' + suggestions[i] + '</li>';
+            }
+            $('#dialog-username-suggestion-list').html(html);
+            $('#dialog-username-unavailable-panel').show();
+            if(suggestions.length == 0){
+                displayErrorMessage('Sorry, something went wrong');
+            }
+            console.log(suggestions); //DM debug
+        };
+
+        const displayErrorMessage = (errorMessage) => {
+            $('#dialog-error-message').html(username);
+            $('#dialog-error-panel').show();
+        };
+
+
+        const cheggName = new UserName("/coding-challenge/api/user/?username=", {
+            displayAvailable   : displayUsernameAvailable,
+            displaySuggestions : displayUsernameUnavailable,
+            displayError       : displayErrorMessage
+        });
+
+        $("#chg-balloon-submit").click(function() {
+            // This is where you come in!!
+            $(".chg-balloon-dialog").hide();
+            const username = $("#chg-balloon-input").val();
+            cheggName.checkAvailability(username);
+        });
+    </script>
+
+  </body>
+</html>
