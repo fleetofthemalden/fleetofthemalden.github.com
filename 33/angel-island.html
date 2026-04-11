@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Angel Island Campout &mdash; Treinta y Tresi&ntilde;era</title>
+  <meta name="description" content="Overnight campout on Angel Island for Dixon's Trenta-y-Tresiñera and the summer solstice. Sunday–Monday, June 21–22, 2026." />
+
+  <meta property="og:title" content="Angel Island Campout — Treinta y Tresiñera" />
+  <meta property="og:description" content="Overnight camping on Angel Island for the summer solstice. June 21–22, 2026." />
+  <meta property="og:image" content="https://minnick.co/33/poster.png" />
+  <meta property="og:url" content="https://minnick.co/33/angel-island.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-deep: #06060f;
+      --gold: #d4a853;
+      --gold-light: #f0d48a;
+      --gold-dim: #a07830;
+      --purple: #4a1a6b;
+      --purple-light: #7b3fa0;
+      --teal: #2dd4bf;
+      --text: #e8e0d4;
+      --text-dim: #a09888;
+      --card-bg: rgba(15, 15, 35, 0.85);
+      --border-ornate: rgba(212, 168, 83, 0.3);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--bg-deep);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    .page {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--gold-dim);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--gold-light); }
+    .back-link svg { width: 14px; height: 14px; fill: currentColor; }
+
+    .event-flag {
+      font-size: 3.5rem;
+      display: block;
+      margin-bottom: 0.75rem;
+    }
+
+    h1 {
+      font-family: 'Cinzel Decorative', 'Cinzel', serif;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--gold-light);
+      line-height: 1.15;
+      margin-bottom: 0.3rem;
+    }
+
+    .tagline {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--gold-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 2rem;
+    }
+
+    .meta-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .meta-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-ornate);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+    }
+    .meta-label {
+      font-size: 0.65rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--gold-dim);
+      margin-bottom: 0.25rem;
+    }
+    .meta-value {
+      font-family: 'Cinzel', serif;
+      font-size: 1rem;
+      color: var(--gold-light);
+    }
+    .meta-note {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.75rem;
+      color: var(--teal);
+      margin-top: 0.2rem;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 2rem;
+    }
+    .description p { margin-bottom: 1rem; }
+
+    .callout {
+      background: rgba(45, 212, 191, 0.08);
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      border-radius: 10px;
+      padding: 1rem 1.25rem;
+      font-size: 0.85rem;
+      color: var(--teal);
+      margin-bottom: 2rem;
+    }
+    .callout strong { color: #fff; }
+
+    .ornament-line {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 1.5rem 0;
+      color: var(--gold-dim);
+      font-size: 1rem;
+      user-select: none;
+    }
+    .ornament-line::before,
+    .ornament-line::after {
+      content: '';
+      flex: 1;
+      max-width: 120px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+    }
+
+    .section-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .timeline {
+      list-style: none;
+      margin-bottom: 2rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: 0.4rem;
+      bottom: 0.4rem;
+      width: 1px;
+      background: var(--border-ornate);
+    }
+    .timeline li {
+      position: relative;
+      margin-bottom: 0.9rem;
+      font-size: 0.9rem;
+    }
+    .timeline li::before {
+      content: '';
+      position: absolute;
+      left: -1.5rem;
+      top: 0.5rem;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+      border: 1px solid var(--gold);
+    }
+    .timeline .time {
+      font-family: 'Cinzel', serif;
+      font-weight: 600;
+      color: var(--gold-light);
+      margin-right: 0.3rem;
+    }
+
+    .detail-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .detail-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.6rem;
+      font-size: 0.9rem;
+    }
+    .detail-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold-dim);
+    }
+
+    .info-links {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+    .info-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.8rem;
+      color: var(--teal);
+      text-decoration: none;
+      padding: 0.4rem 0.8rem;
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      border-radius: 6px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .info-link:hover {
+      background: rgba(45, 212, 191, 0.1);
+      border-color: var(--teal);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Cinzel', serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      padding: 0.65rem 1.5rem;
+      border-radius: 8px;
+      transition: background 0.2s, border-color 0.2s, color 0.2s;
+    }
+    .cta--primary {
+      background: linear-gradient(135deg, var(--gold-dim), var(--gold));
+      color: var(--bg-deep);
+      border: 1px solid var(--gold);
+    }
+    .cta--primary:hover {
+      background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    }
+    .cta--secondary {
+      background: rgba(212, 168, 83, 0.1);
+      border: 1px solid var(--border-ornate);
+      color: var(--gold-light);
+    }
+    .cta--secondary:hover {
+      background: rgba(212, 168, 83, 0.2);
+      border-color: var(--gold);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="page">
+
+    <a class="back-link" href="./">
+      <svg viewBox="0 0 24 24"><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/></svg>
+      All Events
+    </a>
+
+    <span class="event-flag" aria-hidden="true">🏕️</span>
+
+    <h1>Angel Island Campout</h1>
+    <p class="tagline">Overnight Expedition &middot; Summer Solstice</p>
+
+    <div class="meta-grid">
+      <div class="meta-card">
+        <div class="meta-label">Dates</div>
+        <div class="meta-value">Sun, June 21 &ndash; Mon, June 22</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-label">Depart SF</div>
+        <div class="meta-value">2:05 PM Ferry</div>
+        <div class="meta-note">SF Ferry Building, Gate B</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-label">Campground</div>
+        <div class="meta-value">North Garrison Group</div>
+      </div>
+      <div class="meta-card">
+        <div class="meta-label">Capacity</div>
+        <div class="meta-value">30 people</div>
+      </div>
+    </div>
+
+    <div class="description">
+      <p>We&rsquo;re camping out overnight on Angel Island to celebrate Dixon&rsquo;s Trenta-y-Tresi&ntilde;era and the summer solstice. We can accommodate up to 30 people in the North Garrison Group campground.</p>
+    </div>
+
+    <div class="callout">
+      <strong>Bring WARM layers!</strong> It gets cold on the island at night, even in June. Bay Area fog is no joke.
+    </div>
+
+    <div class="ornament-line" aria-hidden="true">&#9978;</div>
+
+    <h3 class="section-heading">Itinerary</h3>
+    <ul class="timeline">
+      <li><span class="time">2:05 PM</span> Depart SF Ferry Building, Gate B</li>
+      <li><span class="time">~3:00 PM</span> Arrive Angel Island</li>
+      <li><span class="time">~3:30 PM</span> Set up camp + shenanigans</li>
+      <li><span class="time">4:50 PM</span> Last ferry off the island (for anyone not staying overnight)</li>
+      <li><span class="time">8:35 PM</span> Sunset &mdash; incredible views of the city and the Bay</li>
+      <li>More shenanigans &middot; sleep(?)</li>
+    </ul>
+
+    <h3 class="section-heading">Monday Morning Ferries</h3>
+    <ul class="detail-list">
+      <li><strong>10:10 AM</strong> &mdash; first ferry departs Angel Island; arrives SF 10:40 AM</li>
+      <li><strong>11:35 AM</strong> &mdash; second ferry departs Angel Island</li>
+      <li><strong>12:20 PM</strong> &mdash; second ferry arrives SF</li>
+    </ul>
+
+    <div class="callout">
+      Yes, it&rsquo;s a Sunday&ndash;Monday &mdash; weekend reservations are hard to get. But you can be back in SF by 10:40 AM Monday if you take the first ferry off the island.
+    </div>
+
+    <div class="ornament-line" aria-hidden="true">&#9978;</div>
+
+    <h3 class="section-heading">Useful Links</h3>
+    <div class="info-links">
+      <a class="info-link" href="https://www.goldengateferry.org/route/angel-island-tiburon-ferry/" target="_blank" rel="noopener">Ferry Info &#8599;</a>
+      <a class="info-link" href="https://www.parks.ca.gov/?page_id=468" target="_blank" rel="noopener">State Park Info &#8599;</a>
+    </div>
+
+    <div class="cta-row">
+      <a class="cta cta--primary" href="https://partiful.com/e/5qIpyYUDQ8EzCy3S73fT?c=ip634UjV" target="_blank" rel="noopener">RSVP on Partiful</a>
+      <a class="cta cta--secondary" href="./">Back to All Events</a>
+    </div>
+
+  </div>
+
+</body>
+</html>
