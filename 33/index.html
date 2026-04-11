@@ -322,6 +322,55 @@
       fill: var(--gold-dim);
     }
 
+    .event-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+    .event-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+      padding: 0.35rem 0.75rem;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .event-link--rsvp {
+      background: rgba(212, 168, 83, 0.12);
+      border: 1px solid var(--border-ornate);
+      color: var(--gold-light);
+    }
+    .event-link--rsvp:hover {
+      background: rgba(212, 168, 83, 0.25);
+      border-color: var(--gold);
+      color: #fff;
+    }
+    .event-link--ticket {
+      background: rgba(74, 26, 107, 0.2);
+      border: 1px solid rgba(123, 63, 160, 0.3);
+      color: var(--purple-light);
+    }
+    .event-link--ticket:hover {
+      background: rgba(74, 26, 107, 0.4);
+      border-color: var(--purple-light);
+      color: #fff;
+    }
+    .event-link--info {
+      background: rgba(45, 212, 191, 0.08);
+      border: 1px solid rgba(45, 212, 191, 0.2);
+      color: var(--teal);
+    }
+    .event-link--info:hover {
+      background: rgba(45, 212, 191, 0.18);
+      border-color: var(--teal);
+      color: #fff;
+    }
+
     /* ── TBA ──────────────────────────────────── */
     .tba-section {
       text-align: center;
@@ -515,7 +564,7 @@
       <header class="hero-heading reveal">
         <h1 class="hero-title">Treinta y<br>Tresi&ntilde;era</h1>
         <p class="hero-subtitle">Dixon&rsquo;s Birthday</p>
-        <p class="hero-tagline">3 weekends &middot; 7+ events &middot; San Francisco &middot; June 2026</p>
+        <p class="hero-tagline">3 weekends for the big 33 &middot; San Francisco &middot; June 2026</p>
       </header>
 
       <div class="ornament" aria-hidden="true">&loz;</div>
@@ -542,25 +591,33 @@
             <p class="event-subtitle">Live in concert</p>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-              Thursday, June 5
+              Friday, June 5 &middot; 8 PM
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
               Bill Graham Civic Auditorium
+            </div>
+            <div class="event-links">
+              <a class="event-link event-link--rsvp" href="https://partiful.com/e/PtZg8X2BiQuetduyFfOr" target="_blank" rel="noopener">RSVP</a>
+              <a class="event-link event-link--ticket" href="https://www.ticketmaster.com/alesso-18-san-francisco-california-06-05-2026/event/1C00643FAC4FAB93" target="_blank" rel="noopener">Tickets</a>
             </div>
           </article>
 
           <article class="event-card">
             <span class="event-icon" aria-hidden="true">🏝️</span>
             <h3 class="event-name">Chris Lorenzo</h3>
-            <p class="event-subtitle">Dials</p>
+            <p class="event-subtitle">Dials &middot; Sunset Party</p>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-              Saturday, June 6
+              Saturday, June 6 &middot; 3 PM
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              Treasure Island
+              Gold Bar, Treasure Island
+            </div>
+            <div class="event-links">
+              <a class="event-link event-link--rsvp" href="https://partiful.com/e/aH0Jpeks9QyzXV4DvJQS" target="_blank" rel="noopener">RSVP</a>
+              <a class="event-link event-link--ticket" href="https://www.tixr.com/e/177195" target="_blank" rel="noopener">Tickets</a>
             </div>
           </article>
 
@@ -580,14 +637,17 @@
           <article class="event-card">
             <span class="event-icon" aria-hidden="true">⚽</span>
             <h3 class="event-name">USMNT vs Paraguay</h3>
-            <p class="event-subtitle">Watch Party</p>
+            <p class="event-subtitle">World Cup Watch Party</p>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-              Thursday, June 12
+              Friday, June 12 &middot; 6 PM
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
               San Francisco
+            </div>
+            <div class="event-links">
+              <a class="event-link event-link--rsvp" href="https://partiful.com/e/h4dEBtCBhBBgoFyPUppK?c=iwmKUGCf" target="_blank" rel="noopener">RSVP</a>
             </div>
           </article>
 
@@ -597,11 +657,15 @@
             <p class="event-subtitle">feat. Dros&eacute;</p>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-              Friday, June 13
+              Saturday, June 13 &middot; 4 PM
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              San Francisco
+              San Francisco &middot; Location TBA
+            </div>
+            <div class="event-links">
+              <a class="event-link event-link--rsvp" href="https://partiful.com/e/dWdwezrY1nsEDJlIJOnL?c=8uvumeEk" target="_blank" rel="noopener">RSVP</a>
+              <a class="event-link event-link--info" href="pirates.html">Details</a>
             </div>
           </article>
 
@@ -611,7 +675,7 @@
             <p class="event-subtitle">Block Party</p>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-              Saturday, June 14
+              Sunday, June 14
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
@@ -649,14 +713,18 @@
           <article class="event-card">
             <span class="event-icon" aria-hidden="true">🏕️</span>
             <h3 class="event-name">Angel Island Campout</h3>
-            <p class="event-subtitle">Overnight Expedition</p>
+            <p class="event-subtitle">Overnight Expedition &middot; Summer Solstice</p>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-              Saturday &ndash; Sunday, June 21&ndash;22
+              Sunday &ndash; Monday, June 21&ndash;22
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
               Angel Island State Park
+            </div>
+            <div class="event-links">
+              <a class="event-link event-link--rsvp" href="https://partiful.com/e/5qIpyYUDQ8EzCy3S73fT?c=ip634UjV" target="_blank" rel="noopener">RSVP</a>
+              <a class="event-link event-link--info" href="angel-island.html">Details</a>
             </div>
           </article>
 
