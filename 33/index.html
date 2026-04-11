@@ -289,6 +289,12 @@
     }
     .event-card:hover::before { opacity: 1; }
 
+    .event-card--tentative {
+      border-style: dashed;
+      opacity: 0.75;
+    }
+    .event-card--tentative:hover { opacity: 1; }
+
     .event-icon {
       font-size: 2rem;
       margin-bottom: 0.75rem;
@@ -606,7 +612,7 @@
           <article class="event-card">
             <span class="event-icon" aria-hidden="true">🏝️</span>
             <h3 class="event-name">Chris Lorenzo</h3>
-            <p class="event-subtitle">Dials &middot; Sunset Party</p>
+            <p class="event-subtitle">Sunset Party</p>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
               Saturday, June 6 &middot; 3 PM
@@ -644,7 +650,7 @@
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              San Francisco
+              Sports Bar or My House
             </div>
             <div class="event-links">
               <a class="event-link event-link--rsvp" href="https://partiful.com/e/h4dEBtCBhBBgoFyPUppK?c=iwmKUGCf" target="_blank" rel="noopener">RSVP</a>
@@ -654,7 +660,7 @@
           <article class="event-card">
             <span class="event-icon" aria-hidden="true">🏴‍☠️</span>
             <h3 class="event-name">Pirates of the Caribbooty</h3>
-            <p class="event-subtitle">feat. Dros&eacute;</p>
+            <p class="event-subtitle">Daytime Rager &middot; feat. DROŚE &middot; full lineup TBA</p>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
               Saturday, June 13 &middot; 4 PM
@@ -679,7 +685,7 @@
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              San Francisco
+              The Midway, SF
             </div>
           </article>
 
@@ -778,6 +784,83 @@
           </g>
         </svg>
       </div>
+
+      <!-- ═══════ POSSIBLE EVENTS ═══════ -->
+      <section class="weekend reveal">
+        <div class="weekend-header">
+          <div class="weekend-number">Possible Events</div>
+        </div>
+        <div class="event-grid">
+
+          <article class="event-card event-card--tentative">
+            <span class="event-icon" aria-hidden="true">🔥</span>
+            <h3 class="event-name">Beach Bonfire</h3>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+              Weather dependent
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
+              Ocean Beach, SF
+            </div>
+          </article>
+
+          <article class="event-card event-card--tentative">
+            <span class="event-icon" aria-hidden="true">☀️</span>
+            <h3 class="event-name">Dolores Park Hang</h3>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+              Weather dependent
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
+              Dolores Park, SF
+            </div>
+          </article>
+
+          <article class="event-card event-card--tentative">
+            <span class="event-icon" aria-hidden="true">🌲</span>
+            <h3 class="event-name">Redwoods Hike</h3>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+              TBD
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
+              Muir Woods
+            </div>
+          </article>
+
+          <article class="event-card event-card--tentative">
+            <span class="event-icon" aria-hidden="true">⚾</span>
+            <h3 class="event-name">Giants Game</h3>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+              TBD
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
+              Oracle Park, SF
+            </div>
+          </article>
+
+          <article class="event-card event-card--tentative">
+            <span class="event-icon" aria-hidden="true">🥂</span>
+            <h3 class="event-name">Bottomless Brunch</h3>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+              TBD
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
+              Someplace tasty
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <div class="ornament" aria-hidden="true">&loz;</div>
 
       <!-- Footer -->
       <footer class="page-footer">
