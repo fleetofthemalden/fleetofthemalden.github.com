@@ -134,6 +134,39 @@
       margin-bottom: 2rem;
     }
     .callout strong { color: #fff; }
+    .callout--warn {
+      background: rgba(212, 168, 83, 0.08);
+      border-color: rgba(212, 168, 83, 0.3);
+      color: var(--gold-light);
+    }
+    .callout--warn strong { color: #fff; }
+    .callout--pending {
+      background: rgba(160, 152, 136, 0.06);
+      border-color: rgba(160, 152, 136, 0.25);
+      color: var(--text-dim);
+    }
+    .callout--pending strong { color: var(--gold-light); }
+
+    .subsection-heading {
+      font-family: 'Cinzel', serif;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      margin: 1.25rem 0 0.5rem;
+    }
+    .subsection-heading:first-of-type { margin-top: 0; }
+
+    .pack-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 0 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .pack-grid .detail-list {
+      margin-bottom: 0;
+    }
 
     .ornament-line {
       display: flex;
@@ -311,18 +344,15 @@
         <div class="meta-label">Campground</div>
         <div class="meta-value">North Garrison Group</div>
       </div>
-      <div class="meta-card">
-        <div class="meta-label">Capacity</div>
-        <div class="meta-value">30 people</div>
-      </div>
     </div>
 
     <div class="description">
-      <p>We&rsquo;re camping out overnight on Angel Island to celebrate Dixon&rsquo;s Trenta-y-Tresi&ntilde;era and the summer solstice. We can accommodate up to 30 people in the North Garrison Group campground.</p>
+      <p>We&rsquo;re camping out overnight on Angel Island to celebrate Dixon&rsquo;s Trenta-y-Tresi&ntilde;era and the summer solstice. We can accommodate up to 30 people in the North Garrison Group campground &mdash; tucked above the historic U.S. Immigration Station on the north side of the island, with sweeping views of Marin, the Bay, and the city skyline.</p>
+      <p>It&rsquo;s the longest day of the year, on a 740-acre island in the middle of the Bay, with no cars and no last ferry to catch. Scroll down for the practical stuff &mdash; it&rsquo;s a real campout, not a glamp.</p>
     </div>
 
-    <div class="callout">
-      <strong>Bring WARM layers!</strong> It gets cold on the island at night, even in June. Bay Area fog is no joke.
+    <div class="callout callout--warn">
+      <strong>Bring WARM layers.</strong> June is statistically the <em>windiest</em> month on Angel Island. Daytime is 60s&ndash;70s, but nights drop to the low 50s and the fog rolls in fast. Bring more warmth than you think you need.
     </div>
 
     <div class="ornament-line" aria-hidden="true">&#9978;</div>
@@ -333,7 +363,7 @@
       <li><span class="time">~3:00 PM</span> Arrive Angel Island</li>
       <li><span class="time">~3:30 PM</span> Set up camp + shenanigans</li>
       <li><span class="time">4:50 PM</span> Last ferry off the island (for anyone not staying overnight)</li>
-      <li><span class="time">8:35 PM</span> Sunset &mdash; incredible views of the city and the Bay</li>
+      <li><span class="time">8:35 PM</span> Sunset on the longest day of the year &mdash; views of the city, the Bay, and the Golden Gate</li>
       <li>More shenanigans &middot; sleep(?)</li>
     </ul>
 
@@ -350,10 +380,73 @@
 
     <div class="ornament-line" aria-hidden="true">&#9978;</div>
 
+    <h3 class="section-heading">Getting There &amp; Hauling Gear</h3>
+    <ul class="detail-list">
+      <li>The North Garrison campground is about <strong>0.8 miles from the Ayala Cove ferry dock</strong>, with roughly <strong>300 ft of elevation gain</strong>. Paved road most of the way.</li>
+      <li>Plan on <strong>20 minutes</strong> to walk up with your stuff. We&rsquo;ll regroup at the dock and head up together.</li>
+      <li><strong>Bikes and wagons are allowed</strong> and very much used &mdash; people haul up full coolers, suitcases, the works. A folding wagon for shared loads is gold.</li>
+      <li>No shuttle service to the campsites. Whatever you bring, you carry (or roll). Think backpacking backpacks, or wagons.</li>
+      <li>The ferry ticket includes the state park entrance fee. Hang on to it.</li>
+    </ul>
+
+    <h3 class="section-heading">What to Pack</h3>
+    <div class="pack-grid">
+      <div>
+        <div class="subsection-heading">Stay Warm</div>
+        <ul class="detail-list">
+          <li>Fleece or puffy + a windbreaker / shell</li>
+          <li>Beanie &mdash; seriously, the wind</li>
+          <li>Long pants and warm socks for evening</li>
+          <li>Sleeping bag rated for ~40&deg;F (or warmer with a liner)</li>
+          <li>Insulated sleeping pad</li>
+        </ul>
+      </div>
+      <div>
+        <div class="subsection-heading">Shelter &amp; Light</div>
+        <ul class="detail-list">
+          <li>Sturdy tent &mdash; bring <strong>extra stakes and guy lines</strong></li>
+          <li>Headlamp + spare batteries</li>
+          <li>Optional: small lantern for the picnic table</li>
+        </ul>
+      </div>
+      <div>
+        <div class="subsection-heading">Daytime</div>
+        <ul class="detail-list">
+          <li>Sturdy walking shoes</li>
+          <li>Sunscreen + sunglasses &mdash; the day sun is real</li>
+          <li>Refillable water bottle (potable water at camp)</li>
+          <li>Day pack for hikes to the summit or perimeter loop</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="section-heading">At Camp</h3>
+    <ul class="detail-list">
+      <li>Picnic tables, food lockers, and a charcoal BBQ on site</li>
+      <li>Potable running water spigot &mdash; refill bottles freely</li>
+      <li>Pit toilets nearby (bring your own TP just in case)</li>
+      <li>Cell service is actually decent across most of the island</li>
+      <li><strong>No wood fires</strong> &mdash; charcoal or camp stoves only. There&rsquo;s no charcoal for sale on the island, so bring what you need.</li>
+      <li><strong>No dogs</strong> (service animals OK). <strong>No swimming</strong> &mdash; strong currents, no lifeguards.</li>
+      <li>Travel after sunset is restricted in parts of the island, so plan to be at camp by dark.</li>
+    </ul>
+
+    <div class="callout callout--warn">
+      <strong>About the raccoons.</strong> Angel Island raccoons are bold, organized, and deeply unimpressed by your snacks. Lock everything &mdash; food, sunscreen, toothpaste, lip balm, anything scented &mdash; in the food lockers any time you walk away. Never leave food in your tent.
+    </div>
+
+    <div class="callout callout--pending">
+      <strong>Food plan: TBD.</strong> Still figuring out whether we&rsquo;re doing a group BBQ, everyone-brings-their-own, or some hybrid. More info before the trip. Either way, bring snacks + water for the hike up.
+    </div>
+
+    <div class="ornament-line" aria-hidden="true">&#9978;</div>
+
     <h3 class="section-heading">Useful Links</h3>
     <div class="info-links">
       <a class="info-link" href="https://www.goldengateferry.org/route/angel-island-tiburon-ferry/" target="_blank" rel="noopener">Ferry Info &#8599;</a>
       <a class="info-link" href="https://www.parks.ca.gov/?page_id=468" target="_blank" rel="noopener">State Park Info &#8599;</a>
+      <a class="info-link" href="https://angelisland.org/visitor-information/boating-camping/" target="_blank" rel="noopener">Camping Guide &#8599;</a>
+      <a class="info-link" href="https://angelisland.org/visitor-information/things-to-do/" target="_blank" rel="noopener">Things to Do &#8599;</a>
     </div>
 
     <div class="cta-row">

@@ -327,6 +327,19 @@
       height: 14px;
       fill: var(--gold-dim);
     }
+    .event-location-link {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .event-location-link:hover,
+    .event-location-link:focus-visible {
+      text-decoration: underline;
+      text-decoration-color: var(--gold-dim);
+      text-underline-offset: 3px;
+      color: var(--gold-light);
+      outline: none;
+    }
 
     .event-links {
       display: flex;
@@ -601,7 +614,7 @@
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              Bill Graham Civic Auditorium
+              <a class="event-location-link" href="https://maps.app.goo.gl/z6k2JMi9SLLrgtQd9?g_st=ic" target="_blank" rel="noopener">Bill Graham Civic Auditorium</a>
             </div>
             <div class="event-links">
               <a class="event-link event-link--rsvp" href="https://partiful.com/e/PtZg8X2BiQuetduyFfOr" target="_blank" rel="noopener">RSVP</a>
@@ -619,7 +632,7 @@
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              Gold Bar, Treasure Island
+              <a class="event-location-link" href="https://maps.app.goo.gl/h9mE2DLZMDx7gG9R6?g_st=ic" target="_blank" rel="noopener">Gold Bar, Treasure Island</a>
             </div>
             <div class="event-links">
               <a class="event-link event-link--rsvp" href="https://partiful.com/e/aH0Jpeks9QyzXV4DvJQS" target="_blank" rel="noopener">RSVP</a>
@@ -658,6 +671,23 @@
           </article>
 
           <article class="event-card">
+            <span class="event-icon" aria-hidden="true">🎸</span>
+            <h3 class="event-name">Emo Night Post-Game</h3>
+            <p class="event-subtitle">Warped &middot; emo + drag</p>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
+              Friday, June 12 &middot; 9 PM
+            </div>
+            <div class="event-detail">
+              <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
+              <a class="event-location-link" href="https://maps.app.goo.gl/cnwdqKrRwPoYBimz6?g_st=ic" target="_blank" rel="noopener">El Rio, SF</a>
+            </div>
+            <div class="event-links">
+              <a class="event-link event-link--rsvp" href="https://partiful.com/e/TkS1lv5HvWPINwo20527?c=mPJHBE8l" target="_blank" rel="noopener">RSVP</a>
+            </div>
+          </article>
+
+          <article class="event-card">
             <span class="event-icon" aria-hidden="true">🏴‍☠️</span>
             <h3 class="event-name">Pirates of the Caribbooty</h3>
             <p class="event-subtitle">Daytime Rager &middot; feat. DROŚE &middot; full lineup TBA</p>
@@ -681,11 +711,14 @@
             <p class="event-subtitle">Block Party</p>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M19 4h-1V2h-2v2H8V2H6v2H5a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2V6a2 2 0 00-2-2zm0 16H5V10h14v10zm0-12H5V6h14v2z"/></svg>
-              Sunday, June 14
+              Sunday, June 14 &middot; 2 PM
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              The Midway, SF
+              <a class="event-location-link" href="https://maps.app.goo.gl/mhbBqF36sX8Ay5r77?g_st=ic" target="_blank" rel="noopener">The Midway, SF</a>
+            </div>
+            <div class="event-links">
+              <a class="event-link event-link--rsvp" href="https://partiful.com/e/1SBg23MJD5FW0JTLBi1m?c=g9E2PIgx" target="_blank" rel="noopener">RSVP</a>
             </div>
           </article>
 
@@ -726,7 +759,7 @@
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              Angel Island State Park
+              <a class="event-location-link" href="https://maps.app.goo.gl/s7doLVQmPPDdh6QZ6?g_st=ic" target="_blank" rel="noopener">Angel Island State Park</a>
             </div>
             <div class="event-links">
               <a class="event-link event-link--rsvp" href="https://partiful.com/e/5qIpyYUDQ8EzCy3S73fT?c=ip634UjV" target="_blank" rel="noopener">RSVP</a>
@@ -801,7 +834,7 @@
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              Ocean Beach, SF
+              <a class="event-location-link" href="https://www.google.com/maps/search/?api=1&amp;query=Ocean+Beach+San+Francisco" target="_blank" rel="noopener">Ocean Beach, SF</a>
             </div>
           </article>
 
@@ -814,7 +847,7 @@
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              Dolores Park, SF
+              <a class="event-location-link" href="https://maps.app.goo.gl/1BFcnCZz45m8Km5q8?g_st=ic" target="_blank" rel="noopener">Dolores Park, SF</a>
             </div>
           </article>
 
@@ -827,7 +860,7 @@
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              Muir Woods
+              <a class="event-location-link" href="https://maps.app.goo.gl/qDxdzSDtNRGBXqms5?g_st=ic" target="_blank" rel="noopener">Muir Woods</a>
             </div>
           </article>
 
@@ -840,7 +873,7 @@
             </div>
             <div class="event-detail">
               <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5A2.5 2.5 0 1112 7a2.5 2.5 0 010 5z"/></svg>
-              Oracle Park, SF
+              <a class="event-location-link" href="https://maps.app.goo.gl/t7Dz2nb4XW2kJdEr7?g_st=ic" target="_blank" rel="noopener">Oracle Park, SF</a>
             </div>
           </article>
 
