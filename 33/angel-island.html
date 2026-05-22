@@ -33,6 +33,7 @@
     }
 
     html { scroll-behavior: smooth; }
+    :target { scroll-margin-top: 1.5rem; }
 
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -351,13 +352,13 @@
       <p>It&rsquo;s the longest day of the year, on a 740-acre island in the middle of the Bay, with no cars and no last ferry to catch. Scroll down for the practical stuff &mdash; it&rsquo;s a real campout, not a glamp.</p>
     </div>
 
-    <div class="callout callout--warn">
+    <div id="weather" class="callout callout--warn">
       <strong>Bring WARM layers.</strong> June is statistically the <em>windiest</em> month on Angel Island. Daytime is 60s&ndash;70s, but nights drop to the low 50s and the fog rolls in fast. Bring more warmth than you think you need.
     </div>
 
     <div class="ornament-line" aria-hidden="true">&#9978;</div>
 
-    <h3 class="section-heading">Itinerary</h3>
+    <h3 id="itinerary" class="section-heading">Itinerary</h3>
     <ul class="timeline">
       <li><span class="time">2:05 PM</span> Depart SF Ferry Building, Gate B</li>
       <li><span class="time">~3:00 PM</span> Arrive Angel Island</li>
@@ -367,7 +368,7 @@
       <li>More shenanigans &middot; sleep(?)</li>
     </ul>
 
-    <h3 class="section-heading">Monday Morning Ferries</h3>
+    <h3 id="return" class="section-heading">Monday Morning Ferries</h3>
     <ul class="detail-list">
       <li><strong>10:10 AM</strong> &mdash; first ferry departs Angel Island; arrives SF 10:40 AM</li>
       <li><strong>11:35 AM</strong> &mdash; second ferry departs Angel Island</li>
@@ -380,16 +381,16 @@
 
     <div class="ornament-line" aria-hidden="true">&#9978;</div>
 
-    <h3 class="section-heading">Getting There &amp; Hauling Gear</h3>
+    <h3 id="getting-there" class="section-heading">Getting There &amp; Hauling Gear</h3>
     <ul class="detail-list">
-      <li>The North Garrison campground is about <strong>0.8 miles from the Ayala Cove ferry dock</strong>, with roughly <strong>300 ft of elevation gain</strong>. Paved road most of the way.</li>
+      <li>The North Garrison campground is about <strong>0.8 miles from the Ayala Cove ferry dock</strong> &mdash; a short uphill walk on paved road.</li>
       <li>Plan on <strong>20 minutes</strong> to walk up with your stuff. We&rsquo;ll regroup at the dock and head up together.</li>
       <li><strong>Bikes and wagons are allowed</strong> and very much used &mdash; people haul up full coolers, suitcases, the works. A folding wagon for shared loads is gold.</li>
       <li>No shuttle service to the campsites. Whatever you bring, you carry (or roll). Think backpacking backpacks, or wagons.</li>
       <li>The ferry ticket includes the state park entrance fee. Hang on to it.</li>
     </ul>
 
-    <h3 class="section-heading">What to Pack</h3>
+    <h3 id="packing" class="section-heading">What to Pack</h3>
     <div class="pack-grid">
       <div>
         <div class="subsection-heading">Stay Warm</div>
@@ -420,7 +421,7 @@
       </div>
     </div>
 
-    <h3 class="section-heading">At Camp</h3>
+    <h3 id="at-camp" class="section-heading">At Camp</h3>
     <ul class="detail-list">
       <li>Picnic tables, food lockers, and a charcoal BBQ on site</li>
       <li>Potable running water spigot &mdash; refill bottles freely</li>
@@ -429,23 +430,26 @@
       <li><strong>No wood fires</strong> &mdash; charcoal or camp stoves only. There&rsquo;s no charcoal for sale on the island, so bring what you need.</li>
       <li><strong>No dogs</strong> (service animals OK). <strong>No swimming</strong> &mdash; strong currents, no lifeguards.</li>
       <li>Travel after sunset is restricted in parts of the island, so plan to be at camp by dark.</li>
+      <li>Heads up: a portion of the perimeter road on the <em>southeast</em> side (near the old Nike Missile Site) is closed to vehicles due to a landslide, with a signed detour for hikers. It doesn&rsquo;t affect our walk from Ayala Cove to camp, but it does affect anyone hoping to do the full 5.5-mile perimeter loop.</li>
     </ul>
 
-    <div class="callout callout--warn">
+    <div id="raccoons" class="callout callout--warn">
       <strong>About the raccoons.</strong> Angel Island raccoons are bold, organized, and deeply unimpressed by your snacks. Lock everything &mdash; food, sunscreen, toothpaste, lip balm, anything scented &mdash; in the food lockers any time you walk away. Never leave food in your tent.
     </div>
 
-    <div class="callout callout--pending">
-      <strong>Food plan: TBD.</strong> Still figuring out whether we&rsquo;re doing a group BBQ, everyone-brings-their-own, or some hybrid. More info before the trip. Either way, bring snacks + water for the hike up.
+    <div id="food" class="callout callout--pending">
+      <strong>Food plan: TBD.</strong> Still figuring out whether we&rsquo;re doing a group BBQ, everyone-brings-their-own, or some hybrid. More info before the trip. Either way, bring any snacks you want for yourself.
     </div>
 
     <div class="ornament-line" aria-hidden="true">&#9978;</div>
 
-    <h3 class="section-heading">Useful Links</h3>
+    <h3 id="links" class="section-heading">Useful Links</h3>
     <div class="info-links">
-      <a class="info-link" href="https://www.goldengateferry.org/route/angel-island-tiburon-ferry/" target="_blank" rel="noopener">Ferry Info &#8599;</a>
+      <a class="info-link" href="https://www.goldengateferry.org/route/angel-island-tiburon-ferry/" target="_blank" rel="noopener">Ferry Schedule &#8599;</a>
       <a class="info-link" href="https://www.parks.ca.gov/?page_id=468" target="_blank" rel="noopener">State Park Info &#8599;</a>
-      <a class="info-link" href="https://angelisland.org/visitor-information/boating-camping/" target="_blank" rel="noopener">Camping Guide &#8599;</a>
+      <a class="info-link" href="https://www.parks.ca.gov/pages/468/files/AngelIslandSPFinalWeb070618.pdf" target="_blank" rel="noopener">Park Map (PDF) &#8599;</a>
+      <a class="info-link" href="https://www.parks.ca.gov/468?page_id=25767" target="_blank" rel="noopener">Current Restrictions &#8599;</a>
+      <a class="info-link" href="https://www.hipcamp.com/en-US/campground/united-states/california/angel-island-campground-y5ryeckl" target="_blank" rel="noopener">Camper Reviews &#8599;</a>
       <a class="info-link" href="https://angelisland.org/visitor-information/things-to-do/" target="_blank" rel="noopener">Things to Do &#8599;</a>
     </div>
 
