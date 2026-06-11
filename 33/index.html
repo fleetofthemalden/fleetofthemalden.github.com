@@ -191,6 +191,22 @@
       letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--text-dim);
+      margin-bottom: 0.5rem;
+    }
+    .countdown-event {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+      text-shadow: 0 0 20px rgba(212, 168, 83, 0.3);
+    }
+    .countdown-when {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
       margin-bottom: 1.25rem;
     }
     .countdown {
@@ -590,7 +606,9 @@
 
       <!-- Countdown -->
       <section class="countdown-section reveal">
-        <p class="countdown-label">The celebration begins in</p>
+        <p class="countdown-label" id="countdown-label">Up next</p>
+        <p class="countdown-event" id="countdown-event"></p>
+        <p class="countdown-when" id="countdown-when"></p>
         <div class="countdown" id="countdown" aria-live="polite"></div>
       </section>
 
@@ -907,8 +925,22 @@
 
   <script>
     (function () {
-      var target = new Date('2026-06-05T18:00:00-07:00');
+      // Scheduled events in chronological order. Times are Pacific (PDT, -07:00).
+      var events = [
+        { name: 'Alesso',                    when: 'Fri, Jun 5 · 8 PM',  start: '2026-06-05T20:00:00-07:00' },
+        { name: 'Chris Lorenzo',             when: 'Sat, Jun 6 · 3 PM',  start: '2026-06-06T15:00:00-07:00' },
+        { name: 'USMNT vs Paraguay',         when: 'Fri, Jun 12 · 6 PM', start: '2026-06-12T18:00:00-07:00' },
+        { name: 'Emo Night Post-Game',       when: 'Fri, Jun 12 · 9 PM', start: '2026-06-12T21:00:00-07:00' },
+        { name: 'Pirates of the Caribbooty', when: 'Sat, Jun 13 · 4 PM', start: '2026-06-13T16:00:00-07:00' },
+        { name: 'Hardwell',                  when: 'Sun, Jun 14 · 2 PM', start: '2026-06-14T14:00:00-07:00' },
+        { name: 'Tiki Bar Crawl',            when: 'Sat, Jun 20',             start: '2026-06-20T12:00:00-07:00' },
+        { name: 'Angel Island Campout',      when: 'Sun, Jun 21',             start: '2026-06-21T10:00:00-07:00' }
+      ].map(function (e) { return { name: e.name, when: e.when, start: new Date(e.start) }; });
+
       var el = document.getElementById('countdown');
+      var labelEl = document.getElementById('countdown-label');
+      var eventEl = document.getElementById('countdown-event');
+      var whenEl = document.getElementById('countdown-when');
 
       function pad(n) { return n < 10 ? '0' + n : n; }
 
@@ -919,13 +951,27 @@
           '</div>';
       }
 
+      function nextEvent(now) {
+        for (var i = 0; i < events.length; i++) {
+          if (events[i].start - now > 0) return events[i];
+        }
+        return null;
+      }
+
       function tick() {
         var now = new Date();
-        var diff = target - now;
-        if (diff <= 0) {
-          el.innerHTML = '<p class="countdown-past">The celebration has begun!</p>';
+        var ev = nextEvent(now);
+        if (!ev) {
+          labelEl.textContent = 'That’s a wrap';
+          eventEl.textContent = '';
+          whenEl.textContent = '';
+          el.innerHTML = '<p class="countdown-past">Thanks for celebrating! 🎉</p>';
           return;
         }
+        labelEl.textContent = 'Up next';
+        eventEl.textContent = ev.name;
+        whenEl.textContent = ev.when;
+        var diff = ev.start - now;
         var d = Math.floor(diff / 86400000);
         var h = Math.floor((diff % 86400000) / 3600000);
         var m = Math.floor((diff % 3600000) / 60000);
